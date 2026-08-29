@@ -14,19 +14,26 @@ ol {
 }
 
 html {
-  font-size: 10px;
+  /* Fluid font-size: 320px genislikte ~7.5px, 1200px+ genislikte 10px.
+     Boylece breakpoint'lerde ani ziplama olmaz, her ekranda oranti aynidir. */
+  font-size: clamp(7.5px, 6.2px + 0.9vw, 10px);
 }
 
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
 }
 
 main {
-  margin-top: 12.8rem;
+  margin-top: 5rem;
   width: 100%;
   height: auto;
+  flex: 1;
 }
 
 ul,
@@ -97,18 +104,18 @@ input {
   font-family: inherit;
 }
 
-body {
-  background-color: var(--bg-color);
-}
-
 /*? @container */
 
 .container {
   margin: 0 auto;
   margin-top: 3.3rem;
   max-width: 757px;
+  width: 100%;
   background: var(--bg-color);
   transition: 1s all ease-in-out;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 /*? theme icon */
@@ -140,7 +147,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 6.5rem;
+  margin-top: 2.5rem;
+  padding: 0 2rem;
 }
 
 .photo {
@@ -163,6 +171,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .info-name {
@@ -205,16 +214,18 @@ body {
 /* @cv-contact */
 
 .cv-contact {
-  margin-top: 4rem;
+  margin-top: 1.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 2rem;
 }
 
 .cv {
   background-color: var(--box-bg);
-  margin-right: 4rem;
-  padding: 2.4rem 8.1rem;
+  padding: 1.6rem 6rem;
   border-radius: 1rem;
   transition: 0.5s all ease-in-out;
 }
@@ -236,7 +247,7 @@ body {
   font-size: 2.2rem;
   color: var(--text-secondary);
   background-color: var(--box-bg);
-  padding: 2.4rem 8.1rem;
+  padding: 1.6rem 6rem;
   border-radius: 1rem;
 }
 
@@ -250,7 +261,7 @@ body {
 
 .portfolio-skills {
   width: 90%;
-  margin: 4rem auto 0;
+  margin: 2.5rem auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,10 +276,11 @@ body {
   flex: 1;
   text-align: center;
   background-color: var(--box-bg);
-  padding: 2.4rem 0;
+  padding: 1.6rem 0.5rem;
   border-radius: 1rem;
   margin: 1.8rem;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .skills {
@@ -278,10 +290,11 @@ body {
   flex: 1;
   text-align: center;
   background-color: var(--box-bg);
-  padding: 2.4rem 0;
+  padding: 1.6rem 0.5rem;
   border-radius: 1rem;
   margin: 1.8rem 1.8rem 1.8rem 0;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .active {
@@ -295,7 +308,7 @@ body {
   width: 90%;
   height: 100%;
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .projects .project {
@@ -344,7 +357,7 @@ body {
 
 /*backend and frontend*/
 .accordion-item {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.2rem;
 }
 
 .backend,
@@ -352,14 +365,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: auto;
-  min-width: 22rem;
+  width: 100%;
+  max-width: 40rem;
   text-align: left;
   font-weight: 500;
   font-size: 2.2rem;
   color: var(--text-secondary);
   background-color: var(--box-bg);
-  padding: 1.8rem 3rem;
+  padding: 1.3rem 3rem;
   border-radius: 1rem;
   cursor: pointer;
 }
@@ -410,20 +423,51 @@ body {
   color: var(--text-secondary);
   width: 2rem;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .backend-list li:last-child {
   border-bottom: none;
 }
 
-.backend-list a {
+.project-name {
   font-size: 1.8rem;
   color: var(--text-primary);
+  flex: 1;
+  margin-right: 1rem;
 }
 
-.backend-list a:hover {
-  color: #ffe071;
-  transition: all 0.3s;
+.link-badge {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  /*border: 1px solid var(--text-secondary);*/
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 0.6rem;
+  margin-left: 0.8rem;
+  opacity: 0.75;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.link-badge i {
+  font-size: 0.9rem !important;
+  width: auto;
+  color: inherit;
+}
+
+.link-badge:hover {
+  color: #0c151d;
+  background-color: #ffe071;
+  border-color: #ffe071;
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 /*frontend*/
@@ -488,7 +532,7 @@ body {
   width: 90%;
   height: 100%;
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
   display: none;
 }
 
@@ -509,7 +553,7 @@ body {
   font-size: 2rem;
   color: var(--text-secondary);
   background-color: var(--box-bg);
-  padding: 1.8rem 2.4rem;
+  padding: 1.3rem 2.4rem;
   border-radius: 1rem;
   cursor: pointer;
 }
@@ -518,6 +562,7 @@ body {
   margin-left: 1.5rem;
   font-size: 1.6rem;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .skill-toggle.active {
@@ -551,7 +596,7 @@ body {
   gap: 1.2rem;
   background-color: var(--box-bg);
   border-radius: 1.2rem;
-  padding: 2.4rem 1.2rem;
+  padding: 1.6rem 1.2rem;
   transition: all 0.3s ease;
 }
 
@@ -579,25 +624,25 @@ body {
 
 footer {
   font-weight: 500;
-  font-size: 2.2rem;
+  font-size: 1.6rem;
   color: var(--text-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4rem;
-  margin-top: 7rem;
+  text-align: center;
+  margin-top: auto;
+  padding: 4rem 2rem 2.5rem;
 }
 
+.no-wrap {
+  white-space: nowrap;
+}
 
 /* @responsive  */
 
 @media (max-width: 768px) {
-  html {
-    font-size: 7px;
-  }
-
   .container {
-    width: 90%;
+    width: 92%;
     height: auto;
   }
 
@@ -608,15 +653,11 @@ footer {
 
   .info {
     margin-left: 0;
-    margin-top: 4rem;
+    margin-top: 2rem;
   }
 }
 
 @media (max-width: 505px) {
-  html {
-    font-size: 5px;
-  }
-
   .projects-first,
   .projects-second,
   .projects-third {
@@ -631,24 +672,17 @@ footer {
     margin-bottom: 3rem;
   }
 
-  #catchGame:before {
-    font-size: 20px;
+  .portfolio,
+  .skills {
+    font-size: 1.8rem;
   }
 
-  #comingSoon:before {
-    font-size: 20px;
-  }
-
-  #firstWebsiteProject:before {
-    font-size: 20px;
-  }
-
-  #calculator:before {
-    font-size: 20px;
-  }
-
+  #catchGame:before,
+  #comingSoon:before,
+  #firstWebsiteProject:before,
+  #calculator:before,
   #WeatherApp:before {
-    font-size: 20px;
+    font-size: 2rem;
   }
 
   .skill-grid {
@@ -658,11 +692,47 @@ footer {
   .skill-accordion-grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 390px) {
-  html {
-    font-size: 4px;
+  .cv-contact {
+    gap: 1.2rem;
+  }
+
+  .cv,
+  .contact {
+    padding: 1.6rem 4rem;
+  }
+
+  .backend-list li {
+    gap: 0.8rem;
+  }
+
+  .backend-list li i {
+    font-size: 1.5rem;
+    width: 1.6rem;
+  }
+
+  .project-name {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .link-badge {
+    font-size: 1.05rem;
+    margin-left: 0.4rem;
+  }
+
+  .link-badge i {
+    font-size: 1rem;
   }
 }
+ 
+@media (max-width: 390px) {
+  .info-name {
+    font-size: 3.6rem;
+  }
 
+  .cv,
+  .contact {
+    padding: 1.4rem 3rem;
+  }
+}
