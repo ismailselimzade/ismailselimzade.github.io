@@ -1,0 +1,668 @@
+/*? @css-in default olculerini sifirlamaq */
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html,
+body,
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+main {
+  margin-top: 12.8rem;
+  width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+button {
+  border: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+input {
+  border: none;
+}
+
+/*? @fonts */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*? @theme variables */
+
+:root {
+  font-family: "Poppins", sans-serif;
+
+  --bg-color: #0c151d;
+  --box-bg: #171f26;
+  --text-primary: #f1f2f4;
+  --text-secondary: #a3abb2;
+  --theme-icon-bg: #171f26;
+  --theme-icon-hover-bg: #f1f2f4;
+  --active-bg: #0c151d;
+  --project-hover-opacity: 0.85;
+  --project-label-color: #0c151d;
+  --social-gap: 1rem;
+}
+
+[data-theme="light"] {
+  --bg-color: #e9ebec;
+  --box-bg: #ffffff;
+  --text-primary: #3d3d3d;
+  --text-secondary: #3d3d3d;
+  --theme-icon-bg: #e7e7e7;
+  --theme-icon-hover-bg: #3d3d3d;
+  --active-bg: #d7d7d7;
+  --project-hover-opacity: 0.5;
+  --project-label-color: #0c151d;
+  --social-gap: 3rem;
+}
+
+.theme-icon,
+.contact {
+  border: none;
+  font-family: inherit;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+/*? @container */
+
+.container {
+  margin: 0 auto;
+  margin-top: 3.3rem;
+  max-width: 757px;
+  background: var(--bg-color);
+  transition: 1s all ease-in-out;
+}
+
+/*? theme icon */
+
+.theme-icon {
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--theme-icon-bg);
+  cursor: pointer;
+}
+
+.theme-icon:hover {
+  background-color: var(--theme-icon-hover-bg);
+  transition: all 0.5s;
+}
+
+.theme-icon img {
+  width: 3rem;
+}
+
+/*? photo-info */
+
+.photo-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6.5rem;
+}
+
+.photo {
+  width: 25rem;
+  height: 20rem;
+  box-shadow: 0px 0px 18px 8px #333d46;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo i {
+  color: var(--text-secondary);
+  font-size: 7rem;
+}
+
+.info {
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-name {
+  font-weight: 500;
+  font-size: 4.6rem;
+  color: var(--text-primary);
+}
+
+.info-job {
+  font-weight: 500;
+  font-size: 2.2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.info-sosial {
+  display: flex;
+}
+
+.info-sosial div {
+  width: 3.6rem;
+  height: 3.6rem;
+  margin-right: var(--social-gap);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-sosial i {
+  color: var(--text-secondary);
+  font-size: 3rem;
+}
+
+.info-sosial i:hover {
+  color: #ffe071;
+  transition: all 0.5s;
+}
+
+/* @cv-contact */
+
+.cv-contact {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv {
+  background-color: var(--box-bg);
+  margin-right: 4rem;
+  padding: 2.4rem 8.1rem;
+  border-radius: 1rem;
+  transition: 0.5s all ease-in-out;
+}
+
+.cv a {
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+}
+
+.cv:hover {
+  color: #3d3d3d;
+  background-color: #ffe071;
+  cursor: pointer;
+}
+
+.contact {
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  background-color: var(--box-bg);
+  padding: 2.4rem 8.1rem;
+  border-radius: 1rem;
+}
+
+.contact:hover {
+  color: #3d3d3d;
+  background-color: #ffe071;
+  cursor: pointer;
+}
+
+/* @portfolio-skills */
+
+.portfolio-skills {
+  width: 90%;
+  margin: 4rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--box-bg);
+  border-radius: 2rem;
+}
+
+.portfolio {
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  flex: 1;
+  text-align: center;
+  background-color: var(--box-bg);
+  padding: 2.4rem 0;
+  border-radius: 1rem;
+  margin: 1.8rem;
+  cursor: pointer;
+}
+
+.skills {
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  flex: 1;
+  text-align: center;
+  background-color: var(--box-bg);
+  padding: 2.4rem 0;
+  border-radius: 1rem;
+  margin: 1.8rem 1.8rem 1.8rem 0;
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--active-bg);
+  transition: all 0.5s;
+}
+
+/* @projects */
+
+.projects {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.projects .project {
+  width: 50%;
+  height: 100%;
+  border-radius: 1.5rem;
+}
+
+.project a {
+  width: 100%;
+  height: 100%;
+}
+
+.project img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+}
+
+.project {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.project:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  background-color: #ffe071;
+  cursor: pointer;
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.project:hover::before {
+  opacity: var(--project-hover-opacity);
+}
+
+/*backend and frontend*/
+.accordion-item {
+  margin-bottom: 1.8rem;
+}
+
+.backend,
+.frontend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  min-width: 22rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  background-color: var(--box-bg);
+  padding: 1.8rem 3rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.backend i,
+.frontend i {
+  margin-left: 2rem;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.backend.active,
+.frontend.active {
+  background-color: var(--active-bg);
+}
+
+.backend.active i,
+.frontend.active i {
+  transform: rotate(180deg);
+}
+
+.backend-projects,
+.frontend-projects {
+  display: none;
+  margin-top: 1.5rem;
+}
+
+.backend-projects.open,
+.frontend-projects.open {
+  display: block;
+}
+
+.backend-list {
+  padding: 0;
+  margin: 0;
+}
+
+.backend-list li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--box-bg);
+}
+
+.backend-list li i {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  width: 2rem;
+  text-align: center;
+}
+
+.backend-list li:last-child {
+  border-bottom: none;
+}
+
+.backend-list a {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.backend-list a:hover {
+  color: #ffe071;
+  transition: all 0.3s;
+}
+
+/*frontend*/
+
+#catchGame:before {
+  content: "Catch Game";
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--project-label-color);
+}
+
+#comingSoon:before {
+  content: "coming soon..";
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--project-label-color);
+}
+
+#firstWebsiteProject:before {
+  content: "first website project";
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--project-label-color);
+}
+
+#calculator:before {
+  content: "calculator";
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--project-label-color);
+}
+
+#WeatherApp:before {
+  content: "WeatherApp";
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--project-label-color);
+}
+
+#myTasks::before {
+  content: "myTasks";
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--project-label-color);
+}
+
+.projects-first,
+.projects-second,
+.projects-third {
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+.project-margin {
+  margin-left: 3.2rem;
+  margin-right: 0;
+}
+
+/* @my-skills */
+
+.my-skills {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  display: none;
+}
+
+.skill-accordion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  align-items: start;
+}
+
+.skill-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  background-color: var(--box-bg);
+  padding: 1.8rem 2.4rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.skill-toggle i {
+  margin-left: 1.5rem;
+  font-size: 1.6rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-toggle.active {
+  background-color: var(--active-bg);
+}
+
+.skill-toggle.active i {
+  transform: rotate(180deg);
+}
+
+.skill-panel {
+  display: none;
+  margin-top: 1.5rem;
+}
+
+.skill-panel.open {
+  display: block;
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  background-color: var(--box-bg);
+  border-radius: 1.2rem;
+  padding: 2.4rem 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  background-color: var(--active-bg);
+}
+
+.skill-card img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.skill-card i {
+  font-size: 3.4rem;
+  color: var(--text-secondary);
+}
+
+.skill-card span {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* @footer */
+
+footer {
+  font-weight: 500;
+  font-size: 2.2rem;
+  color: var(--text-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+  margin-top: 7rem;
+}
+
+
+/* @responsive  */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 7px;
+  }
+
+  .container {
+    width: 90%;
+    height: auto;
+  }
+
+  .photo-info {
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  .info {
+    margin-left: 0;
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 505px) {
+  html {
+    font-size: 5px;
+  }
+
+  .projects-first,
+  .projects-second,
+  .projects-third {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .projects .project {
+    width: 90%;
+    margin-left: 0;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+
+  #catchGame:before {
+    font-size: 20px;
+  }
+
+  #comingSoon:before {
+    font-size: 20px;
+  }
+
+  #firstWebsiteProject:before {
+    font-size: 20px;
+  }
+
+  #calculator:before {
+    font-size: 20px;
+  }
+
+  #WeatherApp:before {
+    font-size: 20px;
+  }
+
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skill-accordion-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 390px) {
+  html {
+    font-size: 4px;
+  }
+}
+

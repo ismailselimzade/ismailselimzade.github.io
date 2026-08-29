@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <title>My Portfolio</title>
+</head>
+
+<body>
+  <main class="container">
+    <section class="theme">
+      <button class="theme-icon" aria-label="Toggle theme">
+        <img src="img/moon.png" id="theme-icon-img" alt="theme toggle icon" />
+      </button>
+    </section>
+    <section class="photo-info">
+
+      <div class="info">
+        <div class="info-name">Ismayil Selimzade</div>
+        <div class="info-job">Back End Developer</div>
+        <div class="info-sosial">
+          <div>
+            <a href="https://github.com/ismailselimzade" target="_blank"><i class="fa-brands fa-github"></i></a>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/ismail-selimzade-94795529b" target="_blank"><i
+                class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cv-contact">
+      <div class="cv">
+        <a href="./resume/ismail_resume_en.pdf" download>
+          cv &nbsp;<i class="fa-solid fa-download"></i></a>
+      </div>
+      <button class="contact" aria-label="Contact me">contact me</button>
+    </section>
+    <section class="portfolio-skills">
+      <div class="portfolio active">projects</div>
+      <div class="skills">technical skills</div>
+    </section>
+    <!-- Projects -->
+    <section class="projects">
+      <div class="accordion-item">
+        <button class="backend">
+          Backend Projects
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="backend-projects">
+          <ul class="backend-list">
+            <li><i class="fa-solid fa-cloud-sun"></i><a href="https://github.com/ismailselimzade/WeatherAPIWrapperService" target="_blank">Weather API Wrapper Service</a></li>
+            <li><i class="fa-solid fa-wallet"></i><a href="https://github.com/ismailselimzade/ExpenseTrackerAPI" target="_blank">Expense Tracker API</a></li>
+            <li><i class="fa-solid fa-note-sticky"></i><a href="https://github.com/ismailselimzade/MarkdownNoteTakingApp" target="_blank">Markdown Note-Taking App</a></li>
+            <li><i class="fa-solid fa-list-check"></i><a href="https://github.com/ismailselimzade/ToDoListAPI" target="_blank">To-Do List API</a></li>
+            <li><i class="fa-solid fa-pen-nib"></i><a href="https://github.com/ismailselimzade/PersonalBloggingPlatformAPI" target="_blank">Personal Blogging Platform API</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="frontend">
+          Frontend Projects
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="frontend-projects">
+          <ul class="backend-list">
+            <li><i class="fa-solid fa-gamepad"></i><a href="https://ismailselimzade.github.io/catchGame/" target="_blank">Catch Game</a></li>
+            <li><i class="fa-solid fa-globe"></i><a href="https://ismailselimzade.github.io/first-website-project/" target="_blank">First Website Project</a></li>
+            <li><i class="fa-solid fa-calculator"></i><a href="https://ismailselimzade.github.io/Calculator/" target="_blank">Calculator</a></li>
+            <li><i class="fa-solid fa-cloud-sun"></i><a href="https://ismailselimzade.github.io/WeatherApp/" target="_blank">WeatherApp</a></li>
+            <li><i class="fa-solid fa-list-check"></i><a href="https://ismailselimzade.github.io/myTasks/" target="_blank">myTasks</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="my-skills">
+      <div class="my-skills-content skill-accordion-grid">
+        <!-- Languages -->
+        <div class="accordion-item">
+          <button class="skill-toggle">
+            Languages
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="skill-panel">
+            <div class="skill-grid">
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                <span>C#</span>
+              </div>
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+                <span>C++</span>
+              </div>
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                <span>JavaScript</span>
+              </div>
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+                <span>HTML</span>
+              </div>
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+                <span>CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend Stack -->
+        <div class="accordion-item">
+          <button class="skill-toggle">
+            Backend Stack
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="skill-panel">
+            <div class="skill-grid">
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
+                  alt="ASP.NET Core" />
+                <span>ASP.NET Core</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Entity Framework Core</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-globe"></i>
+                <span>REST API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Database -->
+        <div class="accordion-item">
+          <button class="skill-toggle">
+            Database
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="skill-panel">
+            <div class="skill-grid">
+              <div class="skill-card">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
+                  alt="SQL Server" />
+                <span>SQL Server</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <div class="accordion-item">
+          <button class="skill-toggle">
+            Tools
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="skill-panel">
+            <div class="skill-grid">
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                <span>Git</span>
+              </div>
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+                <span>Docker</span>
+              </div>
+              <div class="skill-card">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                  alt="Postman" />
+                <span>Postman</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-server"></i>
+                <span>DBeaver</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fundamentals -->
+        <div class="accordion-item">
+          <button class="skill-toggle">
+            Fundamentals
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="skill-panel">
+            <div class="skill-grid">
+              <div class="skill-card">
+                <i class="fa-solid fa-cubes"></i>
+                <span>OOP</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-code-branch"></i>
+                <span>Functional Programming</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-diagram-project"></i>
+                <span>Data Structures &amp; Algorithms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>© Ismayil Selimzade. 2026 ` All rights reserved.</footer>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
