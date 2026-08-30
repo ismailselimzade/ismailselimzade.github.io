@@ -9,18 +9,6 @@ const changeTheme = () => {
 };
 themeButton.addEventListener("click", changeTheme);
 
-// contact to me
-const contact = document.querySelector(".contact");
-const sendMail = () => {
-  const emailAddress = "ismailselimzade@mail.ru";
-  const emailSubject = "Portfolio Mail";
-  const emailBody = "";
-  const encodedSubject = encodeURIComponent(emailSubject);
-  const encodedBody = encodeURIComponent(emailBody);
-  window.location.href = `mailto:${emailAddress}?subject=${encodedSubject}&body=${encodedBody}`;
-};
-contact.addEventListener("click", sendMail);
-
 // change portfolio and skills section
 const skills = document.querySelector(".skills");
 const mySkills = document.querySelector(".my-skills");
