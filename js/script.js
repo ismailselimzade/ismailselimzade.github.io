@@ -1,13 +1,11 @@
 "use strict";
 
 // change theme dark & night
-const themeButton = document.querySelector(".theme");
-const themeIconImg = document.querySelector("#theme-icon-img");
+const themeButton = document.querySelector(".theme-icon");
 const changeTheme = () => {
   const html = document.documentElement;
   const isDark = html.getAttribute("data-theme") === "dark";
   html.setAttribute("data-theme", isDark ? "light" : "dark");
-  themeIconImg.src = isDark ? "img/moon.png" : "img/sun.png";
 };
 themeButton.addEventListener("click", changeTheme);
 
