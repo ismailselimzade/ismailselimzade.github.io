@@ -496,6 +496,14 @@ h1, h2, h3, .info-name, .portfolio, .skills, .backend, .frontend, .skill-toggle 
   margin-right: 0.6rem;
 }
 
+/* AZ/TR metnleri EN-den uzun oldugu ucun bir az kicilt */
+html[lang="az"] .portfolio,
+html[lang="az"] .skills,
+html[lang="tr"] .portfolio,
+html[lang="tr"] .skills {
+  font-size: 1.7rem;
+}
+
 .active {
   background-color: var(--active-bg);
   transition: all 0.5s;
