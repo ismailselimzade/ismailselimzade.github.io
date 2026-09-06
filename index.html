@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="az" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
   <title>My Portfolio</title>
@@ -16,7 +14,17 @@
 
 <body>
   <main class="container">
-    <section class="theme">
+    <section class="topbar">
+      <div class="lang-wrapper">
+        <button class="lang-icon" aria-label="Change language">
+          <img class="lang-flag" src="img/flags/az.svg" alt="AZ" />
+        </button>
+        <div class="lang-menu">
+          <button class="lang-option" data-lang="az"><img class="lang-flag" src="img/flags/az.svg" alt="AZ" /> AZ</button>
+          <button class="lang-option" data-lang="tr"><img class="lang-flag" src="img/flags/tr.svg" alt="TR" /> TR</button>
+          <button class="lang-option" data-lang="en">EN</button>
+        </div>
+      </div>
       <button class="theme-icon" aria-label="Toggle theme">
         <span class="theme-icon-half theme-icon-sun-half">
           <i class="fa-solid fa-sun"></i>
@@ -43,20 +51,26 @@
       </div>
     </section>
     <section class="cv-contact">
-      <div class="cv">
-        <a href="./resume/ismail_resume_en.pdf" download>
-          cv &nbsp;<i class="fa-solid fa-download"></i></a>
+      <div class="cv-wrapper">
+        <div class="cv">
+          <span>cv &nbsp;<i class="fa-solid fa-download"></i></span>
+        </div>
+        <div class="cv-lang-menu">
+          <a href="./resume/ismail_resume_az.pdf" download class="cv-lang-option">Azərbaycanca</a>
+          <a href="./resume/ismail_resume_tr.pdf" download class="cv-lang-option">Türkçe</a>
+          <a href="./resume/ismail_resume_en.pdf" download class="cv-lang-option">English</a>
+        </div>
       </div>
     </section>
     <section class="portfolio-skills">
-      <div class="portfolio active"><i class="fa-solid fa-briefcase"></i> projects</div>
-      <div class="skills"><i class="fa-solid fa-code"></i> skills</div>
+      <div class="portfolio active"><i class="fa-solid fa-briefcase"></i> <span data-i18n="tabProjects">projects</span></div>
+      <div class="skills"><i class="fa-solid fa-code"></i> <span data-i18n="tabSkills">skills</span></div>
     </section>
     <!-- Projects -->
     <section class="projects">
       <div class="accordion-item">
         <button class="backend">
-          Backend Projects
+          <span data-i18n="backendProjects">Backend Projects</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="backend-projects">
@@ -82,7 +96,7 @@
 
       <div class="accordion-item">
         <button class="frontend">
-          Frontend Projects
+          <span data-i18n="frontendProjects">Frontend Projects</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="frontend-projects">
@@ -117,31 +131,31 @@
         <!-- Languages -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            Languages
+            <span data-i18n="skillLanguages">Languages</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                <img src="img/devicon/csharp.svg" alt="C#" />
                 <span>C#</span>
               </div>
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                <img src="img/devicon/cplusplus.svg"
                   alt="C++" />
                 <span>C++</span>
               </div>
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                <img src="img/devicon/javascript.svg"
                   alt="JavaScript" />
                 <span>JavaScript</span>
               </div>
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+                <img src="img/devicon/html5.svg" alt="HTML" />
                 <span>HTML</span>
               </div>
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+                <img src="img/devicon/css3.svg" alt="CSS" />
                 <span>CSS</span>
               </div>
             </div>
@@ -151,13 +165,13 @@
         <!-- Backend Stack -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            Backend Stack
+            <span data-i18n="skillBackend">Backend Stack</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg"
+                <img src="img/devicon/dotnet.svg"
                   alt="ASP.NET Core" />
                 <span>ASP.NET Core</span>
               </div>
@@ -176,14 +190,14 @@
         <!-- Database -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            Database
+            <span data-i18n="skillDatabase">Database</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
               <div class="skill-card">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
+                  src="img/devicon/mssql.svg"
                   alt="SQL Server" />
                 <span>SQL Server</span>
               </div>
@@ -194,21 +208,21 @@
         <!-- Tools -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            Tools
+            <span data-i18n="skillTools">Tools</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                <img src="img/devicon/git.svg" alt="Git" />
                 <span>Git</span>
               </div>
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+                <img src="img/devicon/docker.svg" alt="Docker" />
                 <span>Docker</span>
               </div>
               <div class="skill-card">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                <img src="img/devicon/postman.svg"
                   alt="Postman" />
                 <span>Postman</span>
               </div>
@@ -223,7 +237,7 @@
         <!-- Fundamentals -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            Fundamentals
+            <span data-i18n="skillFundamentals">Fundamentals</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
@@ -245,7 +259,7 @@
         </div>
       </div>
     </section>
-    <footer><span class="no-wrap">© Ismayil Selimzade 2026 ` </span> <span class="no-wrap">All rights reserved.</span>
+    <footer><span class="no-wrap">© Ismayil Selimzade 2026 ` </span> <span class="no-wrap" data-i18n="footerRights">All rights reserved.</span>
     </footer>
   </main>
   <script src="js/script.js"></script>
