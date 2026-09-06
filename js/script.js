@@ -80,7 +80,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-setLanguage("az");
+setLanguage("en");
 
 // change theme dark & night
 const themeButton = document.querySelector(".theme-icon");
