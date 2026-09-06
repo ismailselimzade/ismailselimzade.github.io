@@ -107,8 +107,6 @@ h1, h2, h3, .info-name, .portfolio, .skills, .backend, .frontend, .skill-toggle 
   --theme-icon-bg: #171f26;
   --theme-icon-hover-bg: #f1f2f4;
   --active-bg: #0c151d;
-  --project-hover-opacity: 0.85;
-  --project-label-color: #0c151d;
 }
 
 [data-theme="light"] {
@@ -119,8 +117,6 @@ h1, h2, h3, .info-name, .portfolio, .skills, .backend, .frontend, .skill-toggle 
   --theme-icon-bg: #e7e7e7;
   --theme-icon-hover-bg: #3d3d3d;
   --active-bg: #d7d7d7;
-  --project-hover-opacity: 0.5;
-  --project-label-color: #0c151d;
 }
 
 .theme-icon {
@@ -514,50 +510,6 @@ h1, h2, h3, .info-name, .portfolio, .skills, .backend, .frontend, .skill-toggle 
   margin-top: 3rem;
 }
 
-.projects .project {
-  width: 50%;
-  height: 100%;
-  border-radius: 1.5rem;
-}
-
-.project a {
-  width: 100%;
-  height: 100%;
-}
-
-.project img {
-  width: 100%;
-  height: 100%;
-  border-radius: 1.5rem;
-}
-
-.project {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.project:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  border-radius: 1.5rem;
-  background-color: #ffe071;
-  cursor: pointer;
-  transition: all 0.5s;
-  opacity: 0;
-}
-
-.project:hover::before {
-  opacity: var(--project-hover-opacity);
-}
-
 /*backend and frontend*/
 .accordion-item {
   margin-bottom: 1.2rem;
@@ -671,62 +623,6 @@ h1, h2, h3, .info-name, .portfolio, .skills, .backend, .frontend, .skill-toggle 
   border-color: #ffe071;
   opacity: 1;
   transform: translateY(-2px);
-}
-
-/*frontend*/
-
-#catchGame:before {
-  content: "Catch Game";
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--project-label-color);
-}
-
-#comingSoon:before {
-  content: "coming soon..";
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--project-label-color);
-}
-
-#firstWebsiteProject:before {
-  content: "first website project";
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--project-label-color);
-}
-
-#calculator:before {
-  content: "calculator";
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--project-label-color);
-}
-
-#WeatherApp:before {
-  content: "WeatherApp";
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--project-label-color);
-}
-
-#myTasks::before {
-  content: "myTasks";
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--project-label-color);
-}
-
-.projects-first,
-.projects-second,
-.projects-third {
-  display: flex;
-  margin-bottom: 5rem;
-}
-
-.project-margin {
-  margin-left: 3.2rem;
-  margin-right: 0;
 }
 
 /* @my-skills */
@@ -861,31 +757,9 @@ footer {
 }
 
 @media (max-width: 505px) {
-  .projects-first,
-  .projects-second,
-  .projects-third {
-    flex-direction: column;
-    margin-bottom: 0;
-  }
-
-  .projects .project {
-    width: 90%;
-    margin-left: 0;
-    margin: 0 auto;
-    margin-bottom: 3rem;
-  }
-
   .portfolio,
   .skills {
     font-size: 1.8rem;
-  }
-
-  #catchGame:before,
-  #comingSoon:before,
-  #firstWebsiteProject:before,
-  #calculator:before,
-  #WeatherApp:before {
-    font-size: 2rem;
   }
 
   .skill-grid {
