@@ -65,12 +65,13 @@
     <section class="portfolio-skills">
       <div class="portfolio active"><i class="fa-solid fa-briefcase"></i> <span data-i18n="tabProjects">projects</span></div>
       <div class="skills"><i class="fa-solid fa-code"></i> <span data-i18n="tabSkills">skills</span></div>
+      <div class="certificates-tab"><i class="fa-solid fa-award"></i> <span data-i18n="tabCertificates">certificates</span></div>
     </section>
     <!-- Projects -->
     <section class="projects">
       <div class="accordion-item">
         <button class="backend">
-          <span data-i18n="backendProjects">Backend Projects</span>
+          <span data-i18n="backendProjects"><i class="fa-solid fa-server toggle-icon"></i>Backend Projects</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="backend-projects">
@@ -78,6 +79,9 @@
             <li><i class="fa-solid fa-cloud-sun"></i><span class="project-name">Weather API Wrapper Service</span><a
                 href="https://github.com/ismailselimzade/WeatherAPIWrapperService" target="_blank" class="link-badge"><i
                   class="fa-brands fa-github"></i> repo</a></li>
+            <li><i class="fa-solid fa-cart-shopping"></i><span class="project-name">Simple E-Commerce API</span><a
+            href="https://github.com/ismailselimzade/SimpleECommerceAPI" target="_blank"
+            class="link-badge"><i class="fa-brands fa-github"></i> repo</a></li>
             <li><i class="fa-solid fa-wallet"></i><span class="project-name">Expense Tracker API</span><a
                 href="https://github.com/ismailselimzade/ExpenseTrackerAPI" target="_blank" class="link-badge"><i
                   class="fa-brands fa-github"></i> repo</a></li>
@@ -102,7 +106,7 @@
 
       <div class="accordion-item">
         <button class="frontend">
-          <span data-i18n="frontendProjects">Frontend Projects</span>
+          <span data-i18n="frontendProjects"><i class="fa-solid fa-display toggle-icon"></i>Frontend Projects</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="frontend-projects">
@@ -137,7 +141,7 @@
         <!-- Languages -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            <span data-i18n="skillLanguages">Languages</span>
+            <span data-i18n="skillLanguages"><i class="fa-solid fa-code toggle-icon"></i>Languages</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
@@ -171,7 +175,7 @@
         <!-- Backend Stack -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            <span data-i18n="skillBackend">Backend Stack</span>
+            <span data-i18n="skillBackend"><i class="fa-solid fa-server toggle-icon"></i>Backend Stack</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
@@ -196,7 +200,7 @@
         <!-- Database -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            <span data-i18n="skillDatabase">Database</span>
+            <span data-i18n="skillDatabase"><i class="fa-solid fa-database toggle-icon"></i>Database</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
@@ -214,7 +218,7 @@
         <!-- Tools -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            <span data-i18n="skillTools">Tools</span>
+            <span data-i18n="skillTools"><i class="fa-solid fa-wrench toggle-icon"></i>Tools</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
@@ -239,7 +243,7 @@
         <!-- Fundamentals -->
         <div class="accordion-item">
           <button class="skill-toggle">
-            <span data-i18n="skillFundamentals">Fundamentals</span>
+            <span data-i18n="skillFundamentals"><i class="fa-solid fa-graduation-cap toggle-icon"></i>Fundamentals</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <div class="skill-panel">
@@ -261,6 +265,43 @@
         </div>
       </div>
     </section>
+    <section class="certificates">
+      <div class="accordion-item">
+        <div class="cert-toggle"><span><img src="img/devicon/cplusplus.svg" alt="" class="cert-toggle-icon" /> C++</span><i class="fa-solid fa-chevron-down"></i></div>
+        <div class="cert-panel">
+          <div class="cert-grid">
+            <div class="cert-card" data-full="certificates/png/codestar_cplusplus.png">
+              <img src="certificates/png/codestar_cplusplus.png" alt="C++ Certificate" />
+              <div class="cert-info">
+                <span class="cert-name">C++ — CodeStar</span>
+                <a href="certificates/pdf/codestar_cplusplus.pdf" download class="link-badge" onclick="event.stopPropagation()"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <div class="cert-toggle"><span><img src="img/devicon/csharp.svg" alt="" class="cert-toggle-icon" /> C#</span><i class="fa-solid fa-chevron-down"></i></div>
+        <div class="cert-panel">
+          <div class="cert-grid">
+            <div class="cert-card" data-full="certificates/png/hackkerrank_csharp.png">
+              <img src="certificates/png/hackkerrank_csharp.png" alt="C# Certificate" />
+              <div class="cert-info">
+                <span class="cert-name">C# — HackerRank</span>
+                <div class="cert-links">
+                  <a href="https://www.hackerrank.com/certificates/36910d595b3a" target="_blank" class="link-badge" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Verify</a>
+                  <a href="certificates/pdf/hackkerrank_csharp.pdf" download class="link-badge" onclick="event.stopPropagation()"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="cert-lightbox">
+      <span class="cert-lightbox-close">&times;</span>
+      <img class="cert-lightbox-img" src="" alt="Certificate" />
+    </div>
     <footer><span class="no-wrap">© Ismayil Selimzade 2026 ` </span> <span class="no-wrap" data-i18n="footerRights">All rights reserved.</span>
     </footer>
   </main>

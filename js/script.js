@@ -5,6 +5,7 @@ const translations = {
   az: {
     tabProjects: "layihələr",
     tabSkills: "bacarıqlar",
+    tabCertificates: "sertifikatlar",
     backendProjects: "Backend Layihələr",
     frontendProjects: "Frontend Layihələr",
     skillLanguages: "Dillər",
@@ -17,6 +18,7 @@ const translations = {
   tr: {
     tabProjects: "projeler",
     tabSkills: "yetenekler",
+    tabCertificates: "sertifikalar",
     backendProjects: "Backend Projeler",
     frontendProjects: "Frontend Projeler",
     skillLanguages: "Diller",
@@ -29,6 +31,7 @@ const translations = {
   en: {
     tabProjects: "projects",
     tabSkills: "skills",
+    tabCertificates: "certificates",
     backendProjects: "Backend Projects",
     frontendProjects: "Frontend Projects",
     skillLanguages: "Languages",
@@ -55,7 +58,14 @@ const setLanguage = (lang) => {
   if (!dict) return;
   i18nEls.forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key]) el.textContent = dict[key];
+    if (!dict[key]) return;
+    const icon = el.querySelector(".toggle-icon");
+    if (icon) {
+      el.textContent = dict[key];
+      el.prepend(icon);
+    } else {
+      el.textContent = dict[key];
+    }
   });
   if (lang === "en") {
     langIcon.innerHTML = '<span class="lang-flag-text">EN</span>';
@@ -91,29 +101,33 @@ const changeTheme = () => {
 };
 themeButton.addEventListener("click", changeTheme);
 
-// change portfolio and skills section
+// change portfolio, skills and certificates section
 const skills = document.querySelector(".skills");
 const mySkills = document.querySelector(".my-skills");
 const portfolio = document.querySelector(".portfolio");
 const projects = document.querySelector(".projects");
+const certificatesTab = document.querySelector(".certificates-tab");
+const certificates = document.querySelector(".certificates");
 
-const openSkills = () => {
-  projects.style.display = "none";
-  mySkills.style.display = "block";
-  portfolio.classList.remove("active");
-  skills.classList.add("active");
+const allTabs = [portfolio, skills, certificatesTab];
+const allPanels = [projects, mySkills, certificates];
+
+const openPanel = (activeTab, activePanel) => {
+  allPanels.forEach((panel) => {
+    panel.style.display = panel === activePanel ? "block" : "none";
+  });
+  allTabs.forEach((tab) => {
+    tab.classList.toggle("active", tab === activeTab);
+  });
 };
 
-const openProjects = () => {
-  projects.style.display = "block";
-  mySkills.style.display = "none";
-  portfolio.classList.add("active");
-  skills.classList.remove("active");
-};
-
+const openSkills = () => openPanel(skills, mySkills);
+const openProjects = () => openPanel(portfolio, projects);
+const openCertificates = () => openPanel(certificatesTab, certificates);
 
 skills.addEventListener("click", openSkills);
 portfolio.addEventListener("click", openProjects);
+certificatesTab.addEventListener("click", openCertificates);
 
 // cv language dropdown
 const cvBtn = document.querySelector(".cv");
@@ -155,4 +169,40 @@ skillToggles.forEach((btn) => {
     panel.classList.toggle("open");
     btn.classList.toggle("active");
   });
+});
+
+// certificates accordion
+const certToggles = document.querySelectorAll(".cert-toggle");
+certToggles.forEach((btn) => {
+  const panel = btn.nextElementSibling;
+  btn.addEventListener("click", () => {
+    panel.classList.toggle("open");
+    btn.classList.toggle("active");
+  });
+});
+
+// certificates lightbox
+const certCards = document.querySelectorAll(".cert-card");
+const certLightbox = document.querySelector(".cert-lightbox");
+const certLightboxImg = document.querySelector(".cert-lightbox-img");
+const certLightboxClose = document.querySelector(".cert-lightbox-close");
+
+certCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    certLightboxImg.src = card.dataset.full;
+    certLightbox.classList.add("open");
+  });
+});
+
+const closeCertLightbox = () => {
+  certLightbox.classList.remove("open");
+  certLightboxImg.src = "";
+};
+
+certLightboxClose.addEventListener("click", closeCertLightbox);
+certLightbox.addEventListener("click", (e) => {
+  if (e.target === certLightbox) closeCertLightbox();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeCertLightbox();
 });
