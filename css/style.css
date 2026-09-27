@@ -36,9 +36,17 @@ body {
 }
 
 @keyframes gradient-drift {
-  0%   { background-position: 0% 0%, 100% 0%, 50% 100%; }
-  50%  { background-position: 20% 30%, 80% 20%, 40% 80%; }
-  100% { background-position: 0% 0%, 100% 0%, 50% 100%; }
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%;
+  }
+
+  50% {
+    background-position: 20% 30%, 80% 20%, 40% 80%;
+  }
+
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 100%;
+  }
 }
 
 main {
@@ -116,17 +124,32 @@ input {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.topbar          { animation: fade-slide-up 0.6s ease both; }
-.photo-info      { animation: fade-slide-up 0.6s ease 0.1s both; }
-.cv-contact      { animation: fade-slide-up 0.6s ease 0.2s both; }
-.portfolio-skills{ animation: fade-slide-up 0.6s ease 0.3s both; }
-.projects        { animation: fade-slide-up 0.6s ease 0.4s both; }
+.topbar {
+  animation: fade-slide-up 0.6s ease both;
+}
+
+.photo-info {
+  animation: fade-slide-up 0.6s ease 0.1s both;
+}
+
+.cv-contact {
+  animation: fade-slide-up 0.6s ease 0.2s both;
+}
+
+.portfolio-skills {
+  animation: fade-slide-up 0.6s ease 0.3s both;
+}
+
+.projects {
+  animation: fade-slide-up 0.6s ease 0.4s both;
+}
 
 
 /*? @fonts */
@@ -193,6 +216,8 @@ h3,
   --theme-icon-hover-bg: #f1f2f4;
   --active-bg: #0c151d;
   --glass-border: rgba(255, 255, 255, 0.06);
+  --accent-gradient: linear-gradient(135deg, #0ea5e9, #a855f7);
+  --accent-glow: rgba(14, 165, 233, 0.4);
 }
 
 [data-theme="light"] {
@@ -293,9 +318,9 @@ h3,
 }
 
 .lang-option:hover {
-  background-color: rgba(255, 224, 113, 0.15);
-  box-shadow: 0 0 16px rgba(255, 224, 113, 0.4);
-  color: #0c151d;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(168, 85, 247, 0.15));
+  box-shadow: 0 0 16px var(--accent-glow);
+  color: var(--text-primary);
 }
 
 /*? @container */
@@ -312,13 +337,13 @@ h3,
   flex: 1;
 }
 
-.container.blur-bg-cv > *:not(.cv-contact) {
+.container.blur-bg-cv>*:not(.cv-contact) {
   filter: blur(6px);
   transition: filter 0.3s ease;
   pointer-events: none;
 }
 
-.container.blur-bg-lang > *:not(.topbar) {
+.container.blur-bg-lang>*:not(.topbar) {
   filter: blur(6px);
   transition: filter 0.3s ease;
   pointer-events: none;
@@ -475,10 +500,12 @@ h3,
 }
 
 .info-sosial i:hover {
-  color: #ffe071;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   transition: all 0.5s;
 }
-
 /* @cv-contact */
 
 .cv-contact {
@@ -489,6 +516,8 @@ h3,
   flex-wrap: wrap;
   gap: 1.5rem;
   padding: 0 2rem;
+  position: relative;
+  z-index: 5;
 }
 
 .cv-wrapper {
@@ -784,9 +813,9 @@ html[lang="tr"] .certificates-tab {
 }
 
 .link-badge:hover {
-  color: #0c151d;
-  background-color: #ffe071;
-  border-color: #ffe071;
+  color: #f1f2f4;
+  background: var(--accent-gradient);
+  border-color: transparent;
   opacity: 1;
   transform: translateY(-2px);
 }
@@ -982,6 +1011,11 @@ i.cert-toggle-icon {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.cert-card:hover img {
+  transform: scale(1.05);
 }
 
 .cert-info {
@@ -1092,7 +1126,7 @@ footer {
   .cv-contact {
     gap: 1.2rem;
     position: relative;
-  z-index: 20;
+    z-index: 20;
   }
 
   .cv {
