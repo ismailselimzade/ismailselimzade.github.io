@@ -1,6 +1,9 @@
 "use strict";
 
-// i18n
+/* ==========================================================================
+   1. I18N (translations)
+   ========================================================================== */
+
 const translations = {
   az: {
     tabProjects: "layihələr",
@@ -56,6 +59,7 @@ const langFlagUrls = {
 const setLanguage = (lang) => {
   const dict = translations[lang];
   if (!dict) return;
+
   i18nEls.forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (!dict[key]) return;
@@ -67,11 +71,13 @@ const setLanguage = (lang) => {
       el.textContent = dict[key];
     }
   });
+
   if (lang === "en") {
     langIcon.innerHTML = '<span class="lang-flag-text">EN</span>';
   } else {
     langIcon.innerHTML = `<img class="lang-flag" src="${langFlagUrls[lang]}" alt="${lang.toUpperCase()}" />`;
   }
+
   document.documentElement.setAttribute("lang", lang);
   langMenu.classList.remove("open");
   document.querySelector(".container").classList.remove("blur-bg-lang");
@@ -88,16 +94,24 @@ langOptions.forEach((btn) => {
 
 setLanguage("en");
 
-// change theme dark & night
+/* ==========================================================================
+   2. THEME TOGGLE (light/dark)
+   ========================================================================== */
+
 const themeButton = document.querySelector(".theme-icon");
+
 const changeTheme = () => {
   const html = document.documentElement;
   const isDark = html.getAttribute("data-theme") === "dark";
   html.setAttribute("data-theme", isDark ? "light" : "dark");
 };
+
 themeButton.addEventListener("click", changeTheme);
 
-// change portfolio, skills and certificates section
+/* ==========================================================================
+   3. TAB SWITCHING (projects / skills / certificates)
+   ========================================================================== */
+
 const skills = document.querySelector(".skills");
 const mySkills = document.querySelector(".my-skills");
 const portfolio = document.querySelector(".portfolio");
@@ -120,11 +134,11 @@ const openPanel = (activeTab, activePanel) => {
       panel.classList.remove("panel-animate");
     }
   });
+
   allTabs.forEach((tab) => {
     tab.classList.toggle("active", tab === activeTab);
   });
 };
-
 
 const openSkills = () => openPanel(skills, mySkills);
 const openProjects = () => openPanel(portfolio, projects);
@@ -134,7 +148,10 @@ skills.addEventListener("click", openSkills);
 portfolio.addEventListener("click", openProjects);
 certificatesTab.addEventListener("click", openCertificates);
 
-// cv language dropdown
+/* ==========================================================================
+   4. CV LANGUAGE DROPDOWN
+   ========================================================================== */
+
 const cvBtn = document.querySelector(".cv");
 const cvMenu = document.querySelector(".cv-lang-menu");
 
@@ -154,7 +171,10 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// backend and frontend accordion
+/* ==========================================================================
+   5. BACKEND / FRONTEND PROJECT ACCORDIONS
+   ========================================================================== */
+
 const backendBtn = document.querySelector(".backend");
 const frontendBtn = document.querySelector(".frontend");
 const backendProjects = document.querySelector(".backend-projects");
@@ -170,8 +190,12 @@ frontendBtn.addEventListener("click", () => {
   frontendBtn.classList.toggle("active");
 });
 
-// skills accordion
+/* ==========================================================================
+   6. SKILLS ACCORDION
+   ========================================================================== */
+
 const skillToggles = document.querySelectorAll(".skill-toggle");
+
 skillToggles.forEach((btn) => {
   const panel = btn.nextElementSibling;
   btn.addEventListener("click", () => {
@@ -180,8 +204,12 @@ skillToggles.forEach((btn) => {
   });
 });
 
-// certificates accordion
+/* ==========================================================================
+   7. CERTIFICATES ACCORDION
+   ========================================================================== */
+
 const certToggles = document.querySelectorAll(".cert-toggle");
+
 certToggles.forEach((btn) => {
   const panel = btn.nextElementSibling;
   btn.addEventListener("click", () => {
@@ -190,7 +218,10 @@ certToggles.forEach((btn) => {
   });
 });
 
-// certificates lightbox
+/* ==========================================================================
+   8. CERTIFICATE LIGHTBOX
+   ========================================================================== */
+
 const certCards = document.querySelectorAll(".cert-card");
 const certLightbox = document.querySelector(".cert-lightbox");
 const certLightboxImg = document.querySelector(".cert-lightbox-img");
@@ -209,9 +240,90 @@ const closeCertLightbox = () => {
 };
 
 certLightboxClose.addEventListener("click", closeCertLightbox);
+
 certLightbox.addEventListener("click", (e) => {
   if (e.target === certLightbox) closeCertLightbox();
 });
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeCertLightbox();
+});
+
+/* ==========================================================================
+   9. STICKY TOPBAR SCROLL BLUR
+   ========================================================================== */
+
+const topbar = document.querySelector(".topbar");
+
+window.addEventListener("scroll", () => {
+  topbar.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+/* ==========================================================================
+   10. SCROLL-TRIGGERED REVEAL (IntersectionObserver)
+   ========================================================================== */
+
+document.querySelectorAll(".projects, .my-skills, .certificates, .portfolio-skills").forEach((el) => {
+  el.classList.add("reveal");
+});
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  },
+  { threshold: 0.15 }
+);
+
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+/* ==========================================================================
+   11. CURSOR-FOLLOW GLOW (skill cards, cert cards, project accordions)
+   ========================================================================== */
+
+document.querySelectorAll(
+  ".skill-card, .cert-card, .backend, .frontend, .skill-toggle, .cert-toggle, .cv, .portfolio, .skills, .certificates-tab, .theme-icon, .lang-icon, .link-badge, .cv-lang-option, .lang-option, .info-name, .info-job, .project-name, .cert-name"
+).forEach((card) => {
+  const glow = document.createElement("div");
+  glow.className = "glow";
+  card.appendChild(glow);
+
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    glow.style.left = `${e.clientX - rect.left}px`;
+    glow.style.top = `${e.clientY - rect.top}px`;
+    glow.style.opacity = "1";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    glow.style.opacity = "0";
+  });
+});
+
+/* ==========================================================================
+   12. MAGNETIC CV BUTTON
+   ========================================================================== */
+
+const cvBtnMagnetic = document.querySelector(".cv");
+
+cvBtnMagnetic.addEventListener("mousemove", (e) => {
+  const rect = cvBtnMagnetic.getBoundingClientRect();
+  const x = e.clientX - rect.left - rect.width / 2;
+  const y = e.clientY - rect.top - rect.height / 2;
+  cvBtnMagnetic.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+});
+
+cvBtnMagnetic.addEventListener("mouseleave", () => {
+  cvBtnMagnetic.style.transform = "translate(0, 0)";
+});
+
+/* ==========================================================================
+   13. PARALLAX (photo-info on scroll)
+   ========================================================================== */
+
+const photoInfo = document.querySelector(".photo-info");
+
+window.addEventListener("scroll", () => {
+  photoInfo.style.transform = `translateY(${window.scrollY * 0.15}px)`;
 });
