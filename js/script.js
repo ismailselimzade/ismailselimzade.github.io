@@ -74,20 +74,16 @@ const setLanguage = (lang) => {
   }
   document.documentElement.setAttribute("lang", lang);
   langMenu.classList.remove("open");
+  document.querySelector(".container").classList.remove("blur-bg-lang");
 };
 
 langIcon.addEventListener("click", () => {
   langMenu.classList.toggle("open");
+  document.querySelector(".container").classList.toggle("blur-bg-lang", langMenu.classList.contains("open"));
 });
 
 langOptions.forEach((btn) => {
   btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
-});
-
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".lang-wrapper")) {
-    langMenu.classList.remove("open");
-  }
 });
 
 setLanguage("en");
@@ -114,12 +110,21 @@ const allPanels = [projects, mySkills, certificates];
 
 const openPanel = (activeTab, activePanel) => {
   allPanels.forEach((panel) => {
-    panel.style.display = panel === activePanel ? "block" : "none";
+    if (panel === activePanel) {
+      panel.style.display = "block";
+      panel.classList.remove("panel-animate"); // əvvəlki animasiyanı sıfırla
+      void panel.offsetWidth; // brauzeri məcburi reflow-a saldıq
+      panel.classList.add("panel-animate"); // animasiyanı yenidən başlat
+    } else {
+      panel.style.display = "none";
+      panel.classList.remove("panel-animate");
+    }
   });
   allTabs.forEach((tab) => {
     tab.classList.toggle("active", tab === activeTab);
   });
 };
+
 
 const openSkills = () => openPanel(skills, mySkills);
 const openProjects = () => openPanel(portfolio, projects);
@@ -135,15 +140,19 @@ const cvMenu = document.querySelector(".cv-lang-menu");
 
 cvBtn.addEventListener("click", () => {
   cvMenu.classList.toggle("open");
+  document.querySelector(".container").classList.toggle("blur-bg-cv", cvMenu.classList.contains("open"));
 });
 
 document.addEventListener("click", (e) => {
+  if (!e.target.closest(".lang-wrapper")) {
+    langMenu.classList.remove("open");
+    document.querySelector(".container").classList.remove("blur-bg-lang");
+  }
   if (!e.target.closest(".cv-wrapper")) {
     cvMenu.classList.remove("open");
+    document.querySelector(".container").classList.remove("blur-bg-cv");
   }
 });
-
-
 
 // backend and frontend accordion
 const backendBtn = document.querySelector(".backend");
