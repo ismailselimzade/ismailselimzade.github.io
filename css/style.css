@@ -812,6 +812,18 @@ html[lang="tr"] .certificates-tab {
 .cert-toggle-icon {
   width: 2.2rem;
   height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cert-toggle span i {
+  margin-left: 0 !important;
+}
+
+i.cert-toggle-icon {
+  font-size: 1.7rem;
 }
 
 .cert-toggle i {
@@ -824,7 +836,7 @@ html[lang="tr"] .certificates-tab {
   background-color: var(--active-bg);
 }
 
-.cert-toggle.active i {
+.cert-toggle.active > i {
   transform: rotate(180deg);
 }
 
