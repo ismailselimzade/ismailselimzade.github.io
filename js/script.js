@@ -50,6 +50,7 @@ const langIcon = document.querySelector(".lang-icon");
 const langMenu = document.querySelector(".lang-menu");
 const langOptions = document.querySelectorAll(".lang-option");
 const i18nEls = document.querySelectorAll("[data-i18n]");
+const container = document.querySelector(".container");
 
 const langFlagUrls = {
   az: "img/flags/az.svg",
@@ -80,12 +81,12 @@ const setLanguage = (lang) => {
 
   document.documentElement.setAttribute("lang", lang);
   langMenu.classList.remove("open");
-  document.querySelector(".container").classList.remove("blur-bg-lang");
+  container.classList.remove("blur-bg-lang");
 };
 
 langIcon.addEventListener("click", () => {
   langMenu.classList.toggle("open");
-  document.querySelector(".container").classList.toggle("blur-bg-lang", langMenu.classList.contains("open"));
+  container.classList.toggle("blur-bg-lang", langMenu.classList.contains("open"));
 });
 
 langOptions.forEach((btn) => {
@@ -157,18 +158,26 @@ const cvMenu = document.querySelector(".cv-lang-menu");
 
 cvBtn.addEventListener("click", () => {
   cvMenu.classList.toggle("open");
-  document.querySelector(".container").classList.toggle("blur-bg-cv", cvMenu.classList.contains("open"));
+  container.classList.toggle("blur-bg-cv", cvMenu.classList.contains("open"));
 });
 
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".lang-wrapper")) {
     langMenu.classList.remove("open");
-    document.querySelector(".container").classList.remove("blur-bg-lang");
+    container.classList.remove("blur-bg-lang");
   }
   if (!e.target.closest(".cv-wrapper")) {
     cvMenu.classList.remove("open");
-    document.querySelector(".container").classList.remove("blur-bg-cv");
+    container.classList.remove("blur-bg-cv");
   }
+});
+
+// Escape düyməsi ilə menyuları bağla
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  langMenu.classList.remove("open");
+  cvMenu.classList.remove("open");
+  container.classList.remove("blur-bg-lang", "blur-bg-cv");
 });
 
 /* ==========================================================================
@@ -263,7 +272,7 @@ window.addEventListener("scroll", () => {
    10. SCROLL-TRIGGERED REVEAL (IntersectionObserver)
    ========================================================================== */
 
-document.querySelectorAll(".projects, .my-skills, .certificates, .portfolio-skills").forEach((el) => {
+document.querySelectorAll(".my-skills, .certificates").forEach((el) => {
   el.classList.add("reveal");
 });
 
@@ -305,25 +314,13 @@ document.querySelectorAll(
    12. MAGNETIC CV BUTTON
    ========================================================================== */
 
-const cvBtnMagnetic = document.querySelector(".cv");
-
-cvBtnMagnetic.addEventListener("mousemove", (e) => {
-  const rect = cvBtnMagnetic.getBoundingClientRect();
+cvBtn.addEventListener("mousemove", (e) => {
+  const rect = cvBtn.getBoundingClientRect();
   const x = e.clientX - rect.left - rect.width / 2;
   const y = e.clientY - rect.top - rect.height / 2;
-  cvBtnMagnetic.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+  cvBtn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
 });
 
-cvBtnMagnetic.addEventListener("mouseleave", () => {
-  cvBtnMagnetic.style.transform = "translate(0, 0)";
-});
-
-/* ==========================================================================
-   13. PARALLAX (photo-info on scroll)
-   ========================================================================== */
-
-const photoInfo = document.querySelector(".photo-info");
-
-window.addEventListener("scroll", () => {
-  photoInfo.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+cvBtn.addEventListener("mouseleave", () => {
+  cvBtn.style.transform = "translate(0, 0)";
 });

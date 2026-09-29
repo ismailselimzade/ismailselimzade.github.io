@@ -1,62 +1,70 @@
 <!DOCTYPE html>
-<html lang="az" data-theme="light">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İsmayıl Səlimzadə | .NET Developer</title>
 
+  <!-- Styles -->
   <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-  <title>My Portfolio</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
 </head>
 
 <body>
   <main class="container">
+
+    <!-- ========== TOP BAR: language switcher + theme toggle ========== -->
     <section class="topbar">
       <div class="lang-wrapper">
         <button class="lang-icon" aria-label="Change language">
           <img class="lang-flag" src="img/flags/az.svg" alt="AZ" />
         </button>
         <div class="lang-menu">
-          <button class="lang-option" data-lang="az"><img class="lang-flag" src="img/flags/az.svg" alt="AZ" />
-            AZ</button>
-          <button class="lang-option" data-lang="tr"><img class="lang-flag" src="img/flags/tr.svg" alt="TR" />
-            TR</button>
+          <button class="lang-option" data-lang="az">
+            <img class="lang-flag" src="img/flags/az.svg" alt="AZ" /> AZ
+          </button>
+          <button class="lang-option" data-lang="tr">
+            <img class="lang-flag" src="img/flags/tr.svg" alt="TR" /> TR
+          </button>
           <button class="lang-option" data-lang="en">EN</button>
         </div>
       </div>
+
       <button class="theme-icon" aria-label="Toggle theme">
-        <span class="theme-icon-half theme-icon-sun-half">
-          <i class="fa-solid fa-sun"></i>
-        </span>
-        <span class="theme-icon-half theme-icon-moon-half">
-          <i class="fa-solid fa-moon"></i>
-        </span>
+        <span class="theme-icon-half theme-icon-sun-half"><i class="fa-solid fa-sun"></i></span>
+        <span class="theme-icon-half theme-icon-moon-half"><i class="fa-solid fa-moon"></i></span>
       </button>
     </section>
-    <section class="photo-info">
 
+    <!-- ========== HEADER: name, job title, social links ========== -->
+    <section class="photo-info">
       <div class="info">
         <div class="info-name">İsmayıl Səlimzadə</div>
         <div class="info-job" data-i18n="jobTitle">.NET Developer</div>
-        <div class="info-sosial">
+        <div class="info-social">
           <div>
-            <a href="https://github.com/ismailselimzade" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://github.com/ismailselimzade" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
           <div>
-            <a href="https://www.linkedin.com/in/ismayıl-səlimzadə-a2746742b" target="_blank"><i
-                class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/ismayıl-səlimzadə-a2746742b" target="_blank" rel="noopener"
+              aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ========== CV DOWNLOAD (opens a language dropdown) ========== -->
     <section class="cv-contact">
       <div class="cv-wrapper">
-        <div class="cv">
+        <button class="cv" aria-label="Download CV">
           <span>cv &nbsp;<i class="fa-solid fa-download"></i></span>
-        </div>
+        </button>
         <div class="cv-lang-menu">
           <a href="./resume/ismail_resume_az.pdf" download class="cv-lang-option">Azərbaycanca</a>
           <a href="./resume/ismail_resume_tr.pdf" download class="cv-lang-option">Türkçe</a>
@@ -64,84 +72,140 @@
         </div>
       </div>
     </section>
+
+    <!-- ========== TABS: projects / skills / certificates ========== -->
     <section class="portfolio-skills">
-      <div class="portfolio active"><i class="fa-solid fa-briefcase"></i> <span data-i18n="tabProjects">projects</span>
-      </div>
-      <div class="skills"><i class="fa-solid fa-code"></i> <span data-i18n="tabSkills">skills</span></div>
-      <div class="certificates-tab"><i class="fa-solid fa-award"></i> <span
-          data-i18n="tabCertificates">certificates</span></div>
+      <button class="portfolio active">
+        <i class="fa-solid fa-briefcase"></i> <span data-i18n="tabProjects">projects</span>
+      </button>
+      <button class="skills">
+        <i class="fa-solid fa-code"></i> <span data-i18n="tabSkills">skills</span>
+      </button>
+      <button class="certificates-tab">
+        <i class="fa-solid fa-award"></i> <span data-i18n="tabCertificates">certificates</span>
+      </button>
     </section>
-    <!-- Projects -->
+
+    <!-- ========== PANEL 1: PROJECTS ========== -->
     <section class="projects">
+
+      <!-- Backend projects (repo link only) -->
       <div class="accordion-item">
         <button class="backend">
           <span data-i18n="backendProjects"><i class="fa-solid fa-server toggle-icon"></i>Backend Projects</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="backend-projects">
-          <ul class="backend-list">
-            <li><i class="fa-solid fa-cloud-sun"></i><span class="project-name">Weather API Wrapper Service</span><a
-                href="https://github.com/ismailselimzade/WeatherAPIWrapperService" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a></li>
-            <li><i class="fa-solid fa-cart-shopping"></i><span class="project-name">Simple E-Commerce API</span><a
-                href="https://github.com/ismailselimzade/SimpleECommerceAPI" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a></li>
-            <li><i class="fa-solid fa-wallet"></i><span class="project-name">Expense Tracker API</span><a
-                href="https://github.com/ismailselimzade/ExpenseTrackerAPI" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a></li>
-            <li><i class="fa-solid fa-note-sticky"></i><span class="project-name">Markdown Note-Taking App</span><a
-                href="https://github.com/ismailselimzade/MarkdownNoteTakingApp" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a></li>
-            <li><i class="fa-solid fa-list-check"></i><span class="project-name">To-Do List API</span><a
-                href="https://github.com/ismailselimzade/ToDoListAPI" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a></li>
-            <li><i class="fa-solid fa-pen-nib"></i><span class="project-name">Personal Blogging Platform API</span><a
-                href="https://github.com/ismailselimzade/PersonalBloggingPlatformAPI" target="_blank"
-                class="link-badge"><i class="fa-brands fa-github"></i> repo</a></li>
-            <li><i class="fa-solid fa-scissors"></i><span class="project-name">URL Shortening Service</span><a
-                href="https://github.com/ismailselimzade/URLShorteningService" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a></li>
-            <li><i class="fa-solid fa-tower-broadcast"></i><span class="project-name">Real-Time Polling App</span><a
-                href="https://github.com/ismailselimzade/RealtimePollingApp" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a></li>
+          <ul class="project-list">
+            <li>
+              <i class="fa-solid fa-cloud-sun"></i>
+              <span class="project-name">Weather API Wrapper Service</span>
+              <a href="https://github.com/ismailselimzade/WeatherAPIWrapperService" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="project-name">Simple E-Commerce API</span>
+              <a href="https://github.com/ismailselimzade/SimpleECommerceAPI" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-wallet"></i>
+              <span class="project-name">Expense Tracker API</span>
+              <a href="https://github.com/ismailselimzade/ExpenseTrackerAPI" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-note-sticky"></i>
+              <span class="project-name">Markdown Note-Taking App</span>
+              <a href="https://github.com/ismailselimzade/MarkdownNoteTakingApp" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-list-check"></i>
+              <span class="project-name">To-Do List API</span>
+              <a href="https://github.com/ismailselimzade/ToDoListAPI" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-pen-nib"></i>
+              <span class="project-name">Personal Blogging Platform API</span>
+              <a href="https://github.com/ismailselimzade/PersonalBloggingPlatformAPI" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-scissors"></i>
+              <span class="project-name">URL Shortening Service</span>
+              <a href="https://github.com/ismailselimzade/URLShorteningService" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-tower-broadcast"></i>
+              <span class="project-name">Real-Time Polling App</span>
+              <a href="https://github.com/ismailselimzade/RealtimePollingApp" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+            </li>
           </ul>
         </div>
       </div>
 
+      <!-- Frontend projects (repo link + live site link) -->
       <div class="accordion-item">
         <button class="frontend">
           <span data-i18n="frontendProjects"><i class="fa-solid fa-display toggle-icon"></i>Frontend Projects</span>
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="frontend-projects">
-          <ul class="backend-list">
-            <li><i class="fa-solid fa-gamepad"></i><span class="project-name">Catch Game</span><a
-                href="https://github.com/ismailselimzade/CatchGame/" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a><a href="https://ismailselimzade.github.io/CatchGame/"
-                target="_blank" class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a></li>
-            <li><i class="fa-solid fa-globe"></i><span class="project-name">First Website Template</span><a
-                href="https://github.com/ismailselimzade/FirstWebSiteTemplate/" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a><a
-                href="https://ismailselimzade.github.io/FirstWebSiteTemplate/" target="_blank" class="link-badge">visit
-                site<i class="fa-solid fa-chevron-right"></i></a></li>
-            <li><i class="fa-solid fa-calculator"></i><span class="project-name">Calculator</span><a
-                href="https://github.com/ismailselimzade/Calculator/" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a><a href="https://ismailselimzade.github.io/Calculator/"
-                target="_blank" class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a></li>
-            <li><i class="fa-solid fa-cloud-sun"></i><span class="project-name">WeatherApp</span><a
-                href="https://github.com/ismailselimzade/WeatherApp/" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a><a href="https://ismailselimzade.github.io/WeatherApp/"
-                target="_blank" class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a></li>
-            <li><i class="fa-solid fa-list-check"></i><span class="project-name">myTasks</span><a
-                href="https://github.com/ismailselimzade/MyTasks/" target="_blank" class="link-badge"><i
-                  class="fa-brands fa-github"></i> repo</a><a href="https://ismailselimzade.github.io/MyTasks/"
-                target="_blank" class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a></li>
+          <ul class="project-list">
+            <li>
+              <i class="fa-solid fa-gamepad"></i>
+              <span class="project-name">Catch Game</span>
+              <a href="https://github.com/ismailselimzade/CatchGame/" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+              <a href="https://ismailselimzade.github.io/CatchGame/" target="_blank" rel="noopener"
+                class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a>
+            </li>
+            <li>
+              <i class="fa-solid fa-globe"></i>
+              <span class="project-name">First Website Template</span>
+              <a href="https://github.com/ismailselimzade/FirstWebSiteTemplate/" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+              <a href="https://ismailselimzade.github.io/FirstWebSiteTemplate/" target="_blank" rel="noopener"
+                class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a>
+            </li>
+            <li>
+              <i class="fa-solid fa-calculator"></i>
+              <span class="project-name">Calculator</span>
+              <a href="https://github.com/ismailselimzade/Calculator/" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+              <a href="https://ismailselimzade.github.io/Calculator/" target="_blank" rel="noopener"
+                class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a>
+            </li>
+            <li>
+              <i class="fa-solid fa-cloud-sun"></i>
+              <span class="project-name">WeatherApp</span>
+              <a href="https://github.com/ismailselimzade/WeatherApp/" target="_blank" rel="noopener"
+                class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+              <a href="https://ismailselimzade.github.io/WeatherApp/" target="_blank" rel="noopener"
+                class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a>
+            </li>
+            <li>
+              <i class="fa-solid fa-list-check"></i>
+              <span class="project-name">myTasks</span>
+              <a href="https://github.com/ismailselimzade/MyTasks/" target="_blank" rel="noopener" class="link-badge"><i
+                  class="fa-brands fa-github"></i> repo</a>
+              <a href="https://ismailselimzade.github.io/MyTasks/" target="_blank" rel="noopener"
+                class="link-badge">visit site<i class="fa-solid fa-chevron-right"></i></a>
+            </li>
           </ul>
         </div>
       </div>
     </section>
+
+    <!-- ========== PANEL 2: SKILLS ========== -->
     <section class="my-skills">
       <div class="my-skills-content skill-accordion-grid">
+
         <!-- Languages -->
         <div class="accordion-item">
           <button class="skill-toggle">
@@ -150,26 +214,12 @@
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
-              <div class="skill-card">
-                <img src="img/devicon/csharp.svg" alt="C#" />
-                <span>C#</span>
+              <div class="skill-card"><img src="img/devicon/csharp.svg" alt="C#" /><span>C#</span></div>
+              <div class="skill-card"><img src="img/devicon/cplusplus.svg" alt="C++" /><span>C++</span></div>
+              <div class="skill-card"><img src="img/devicon/javascript.svg" alt="JavaScript" /><span>JavaScript</span>
               </div>
-              <div class="skill-card">
-                <img src="img/devicon/cplusplus.svg" alt="C++" />
-                <span>C++</span>
-              </div>
-              <div class="skill-card">
-                <img src="img/devicon/javascript.svg" alt="JavaScript" />
-                <span>JavaScript</span>
-              </div>
-              <div class="skill-card">
-                <img src="img/devicon/html5.svg" alt="HTML" />
-                <span>HTML</span>
-              </div>
-              <div class="skill-card">
-                <img src="img/devicon/css3.svg" alt="CSS" />
-                <span>CSS</span>
-              </div>
+              <div class="skill-card"><img src="img/devicon/html5.svg" alt="HTML" /><span>HTML</span></div>
+              <div class="skill-card"><img src="img/devicon/css3.svg" alt="CSS" /><span>CSS</span></div>
             </div>
           </div>
         </div>
@@ -182,18 +232,10 @@
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
-              <div class="skill-card">
-                <img src="img/devicon/dotnet.svg" alt="ASP.NET Core" />
-                <span>ASP.NET Core</span>
+              <div class="skill-card"><img src="img/devicon/dotnet.svg" alt="ASP.NET Core" /><span>ASP.NET Core</span>
               </div>
-              <div class="skill-card">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Entity Framework Core</span>
-              </div>
-              <div class="skill-card">
-                <i class="fa-solid fa-globe"></i>
-                <span>REST API</span>
-              </div>
+              <div class="skill-card"><i class="fa-solid fa-layer-group"></i><span>Entity Framework Core</span></div>
+              <div class="skill-card"><i class="fa-solid fa-globe"></i><span>REST API</span></div>
             </div>
           </div>
         </div>
@@ -206,10 +248,7 @@
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
-              <div class="skill-card">
-                <img src="img/devicon/mssql.svg" alt="SQL Server" />
-                <span>SQL Server</span>
-              </div>
+              <div class="skill-card"><img src="img/devicon/mssql.svg" alt="SQL Server" /><span>SQL Server</span></div>
             </div>
           </div>
         </div>
@@ -222,18 +261,9 @@
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
-              <div class="skill-card">
-                <img src="img/devicon/git.svg" alt="Git" />
-                <span>Git</span>
-              </div>
-              <div class="skill-card">
-                <img src="img/devicon/docker.svg" alt="Docker" />
-                <span>Docker</span>
-              </div>
-              <div class="skill-card">
-                <img src="img/devicon/postman.svg" alt="Postman" />
-                <span>Postman</span>
-              </div>
+              <div class="skill-card"><img src="img/devicon/git.svg" alt="Git" /><span>Git</span></div>
+              <div class="skill-card"><img src="img/devicon/docker.svg" alt="Docker" /><span>Docker</span></div>
+              <div class="skill-card"><img src="img/devicon/postman.svg" alt="Postman" /><span>Postman</span></div>
             </div>
           </div>
         </div>
@@ -247,27 +277,26 @@
           </button>
           <div class="skill-panel">
             <div class="skill-grid">
-              <div class="skill-card">
-                <i class="fa-solid fa-cubes"></i>
-                <span>OOP</span>
-              </div>
-              <div class="skill-card">
-                <i class="fa-solid fa-code-branch"></i>
-                <span>Functional Programming</span>
-              </div>
-              <div class="skill-card">
-                <i class="fa-solid fa-diagram-project"></i>
-                <span>Data Structures &amp; Algorithms</span>
-              </div>
+              <div class="skill-card"><i class="fa-solid fa-cubes"></i><span>OOP</span></div>
+              <div class="skill-card"><i class="fa-solid fa-code-branch"></i><span>Functional Programming</span></div>
+              <div class="skill-card"><i class="fa-solid fa-diagram-project"></i><span>Data Structures &amp;
+                  Algorithms</span></div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
+
+    <!-- ========== PANEL 3: CERTIFICATES ========== -->
     <section class="certificates">
+
+      <!-- C++ -->
       <div class="accordion-item">
-        <div class="cert-toggle"><span><img src="img/devicon/cplusplus.svg" alt="" class="cert-toggle-icon" />
-            C++</span><i class="fa-solid fa-chevron-down"></i></div>
+        <button class="cert-toggle">
+          <span><img src="img/devicon/cplusplus.svg" alt="" class="cert-toggle-icon" /> C++</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="cert-panel">
           <div class="cert-grid">
             <div class="cert-card" data-full="certificates/png/codestar_cplusplus.png">
@@ -281,9 +310,13 @@
           </div>
         </div>
       </div>
+
+      <!-- C# -->
       <div class="accordion-item">
-        <div class="cert-toggle"><span><img src="img/devicon/csharp.svg" alt="" class="cert-toggle-icon" /> C#</span><i
-            class="fa-solid fa-chevron-down"></i></div>
+        <button class="cert-toggle">
+          <span><img src="img/devicon/csharp.svg" alt="" class="cert-toggle-icon" /> C#</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="cert-panel">
           <div class="cert-grid">
             <div class="cert-card" data-full="certificates/png/hackerrank_csharp.png">
@@ -291,8 +324,9 @@
               <div class="cert-info">
                 <span class="cert-name">C# — HackerRank</span>
                 <div class="cert-links">
-                  <a href="https://www.hackerrank.com/certificates/36910d595b3a" target="_blank" class="link-badge"
-                    onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Verify</a>
+                  <a href="https://www.hackerrank.com/certificates/36910d595b3a" target="_blank" rel="noopener"
+                    class="link-badge" onclick="event.stopPropagation()"><i
+                      class="fa-solid fa-arrow-up-right-from-square"></i> Verify</a>
                   <a href="certificates/pdf/hackerrank_csharp.pdf" download class="link-badge"
                     onclick="event.stopPropagation()"><i class="fa-solid fa-file-pdf"></i> PDF</a>
                 </div>
@@ -301,9 +335,13 @@
           </div>
         </div>
       </div>
+
+      <!-- Problem Solving -->
       <div class="accordion-item">
-        <div class="cert-toggle"><span><i class="fa-solid fa-puzzle-piece cert-toggle-icon"></i> Problem
-            Solving</span><i class="fa-solid fa-chevron-down"></i></div>
+        <button class="cert-toggle">
+          <span><i class="fa-solid fa-puzzle-piece cert-toggle-icon"></i> Problem Solving</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="cert-panel">
           <div class="cert-grid">
             <div class="cert-card" data-full="certificates/png/hackerrank_problemsolving.png">
@@ -311,8 +349,9 @@
               <div class="cert-info">
                 <span class="cert-name">Problem Solving — HackerRank</span>
                 <div class="cert-links">
-                  <a href="https://www.hackerrank.com/certificates/c5bff00635ad" target="_blank" class="link-badge"
-                    onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Verify</a>
+                  <a href="https://www.hackerrank.com/certificates/c5bff00635ad" target="_blank" rel="noopener"
+                    class="link-badge" onclick="event.stopPropagation()"><i
+                      class="fa-solid fa-arrow-up-right-from-square"></i> Verify</a>
                   <a href="certificates/pdf/hackerrank_problemsolving.pdf" download class="link-badge"
                     onclick="event.stopPropagation()"><i class="fa-solid fa-file-pdf"></i> PDF</a>
                 </div>
@@ -321,8 +360,13 @@
           </div>
         </div>
       </div>
+
+      <!-- SQL -->
       <div class="accordion-item">
-        <div class="cert-toggle"><span><i class="fa-solid fa-database cert-toggle-icon"></i> SQL</span><i class="fa-solid fa-chevron-down"></i></div>
+        <button class="cert-toggle">
+          <span><i class="fa-solid fa-database cert-toggle-icon"></i> SQL</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
         <div class="cert-panel">
           <div class="cert-grid">
             <div class="cert-card" data-full="certificates/png/hackerrank_sql.png">
@@ -330,8 +374,9 @@
               <div class="cert-info">
                 <span class="cert-name">SQL — HackerRank</span>
                 <div class="cert-links">
-                  <a href="https://www.hackerrank.com/certificates/d244960db519" target="_blank" class="link-badge"
-                    onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i> Verify</a>
+                  <a href="https://www.hackerrank.com/certificates/d244960db519" target="_blank" rel="noopener"
+                    class="link-badge" onclick="event.stopPropagation()"><i
+                      class="fa-solid fa-arrow-up-right-from-square"></i> Verify</a>
                   <a href="certificates/pdf/hackerrank_sql.pdf" download class="link-badge"
                     onclick="event.stopPropagation()"><i class="fa-solid fa-file-pdf"></i> PDF</a>
                 </div>
@@ -340,15 +385,23 @@
           </div>
         </div>
       </div>
+
     </section>
+
+    <!-- ========== CERTIFICATE LIGHTBOX (fullscreen preview) ========== -->
     <div class="cert-lightbox">
       <span class="cert-lightbox-close">&times;</span>
       <img class="cert-lightbox-img" src="" alt="Certificate" />
     </div>
-    <footer><span class="no-wrap">© Ismayil Selimzade 2026 ` </span> <span class="no-wrap" data-i18n="footerRights">All
-        rights reserved.</span>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+      <span class="no-wrap">© Ismayil Selimzade 2026`</span>
+      <span class="no-wrap" data-i18n="footerRights">All rights reserved.</span>
     </footer>
+
   </main>
+
   <script src="js/script.js"></script>
 </body>
 
