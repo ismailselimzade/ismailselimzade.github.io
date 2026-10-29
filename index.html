@@ -97,11 +97,27 @@
         </button>
         <div class="backend-projects">
           <ul class="project-list">
-            <li>
+            <li class="project-item-with-demo">
               <i class="fa-solid fa-cloud-sun"></i>
               <span class="project-name">Weather API Wrapper Service</span>
               <a href="https://github.com/ismailselimzade/WeatherAPIWrapperService" target="_blank" rel="noopener"
                 class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+              <button class="link-badge try-it-btn" data-demo="weather-demo">
+                <i class="fa-solid fa-play"></i> try it
+              </button>
+              <div class="api-demo" id="weather-demo">
+                <div class="api-endpoint">
+                  <span class="api-method get">GET</span>
+                  <span class="api-path">/weather/{city}</span>
+                  <span class="api-desc">Returns current weather data for a city</span>
+                </div>
+                <div class="api-inputs">
+                  <label class="api-label">city</label>
+                  <input class="api-input" type="text" placeholder="e.g. London" id="weather-city-input" />
+                  <button class="api-send-btn" data-api="weather">Send <i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+                <pre class="api-response" id="weather-response">// response will appear here</pre>
+              </div>
             </li>
             <li>
               <i class="fa-solid fa-cart-shopping"></i>

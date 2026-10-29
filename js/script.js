@@ -324,3 +324,50 @@ cvBtn.addEventListener("mousemove", (e) => {
 cvBtn.addEventListener("mouseleave", () => {
   cvBtn.style.transform = "translate(0, 0)";
 });
+
+/* ==========================================================================
+   13. API DEMO PANELS
+   ========================================================================== */
+
+const WEATHER_BASE_URL = "https://weatherapiwrapperservice-ikj2.onrender.com";
+
+document.querySelectorAll(".try-it-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const demoId = btn.dataset.demo;
+    const demo = document.getElementById(demoId);
+    demo.classList.toggle("open");
+  });
+});
+
+document.querySelectorAll(".api-send-btn").forEach((btn) => {
+  btn.addEventListener("click", async () => {
+    const api = btn.dataset.api;
+
+    if (api === "weather") {
+      const city = document.getElementById("weather-city-input").value.trim();
+      const responseEl = document.getElementById("weather-response");
+
+      if (!city) {
+        responseEl.textContent = "// please enter a city name";
+        responseEl.className = "api-response error";
+        return;
+      }
+
+      btn.disabled = true;
+      responseEl.textContent = "// loading...";
+      responseEl.className = "api-response";
+
+      try {
+        const res = await fetch(`${WEATHER_BASE_URL}/weather/${encodeURIComponent(city)}`);
+        const data = await res.json();
+        responseEl.textContent = JSON.stringify(data, null, 2);
+        responseEl.className = res.ok ? "api-response success" : "api-response error";
+      } catch (err) {
+        responseEl.textContent = "// could not reach the API";
+        responseEl.className = "api-response error";
+      } finally {
+        btn.disabled = false;
+      }
+    }
+  });
+});
