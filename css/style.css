@@ -784,13 +784,17 @@ html[lang="tr"] .certificates-tab {
 
 .backend-projects,
 .frontend-projects {
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   margin-top: 1.5rem;
 }
 
 .backend-projects.open,
 .frontend-projects.open {
-  display: block;
+  max-height: 100rem;
+  opacity: 1;
 }
 
 .project-list {
@@ -908,12 +912,16 @@ html[lang="tr"] .certificates-tab {
 }
 
 .skill-panel {
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   margin-top: 1.5rem;
 }
 
 .skill-panel.open {
-  display: block;
+  max-height: 40rem;
+  opacity: 1;
 }
 
 .skill-grid {
@@ -1029,12 +1037,16 @@ i.cert-toggle-icon {
 }
 
 .cert-panel {
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   margin-top: 1.5rem;
 }
 
 .cert-panel.open {
-  display: block;
+  max-height: 60rem;
+  opacity: 1;
 }
 
 .cert-grid {
@@ -1240,17 +1252,19 @@ footer {
 .try-it-btn {
   margin-left: auto;
   color: #0ea5e9;
-  border: 1px solid rgba(14, 165, 233, 0.4);
+  background: rgba(14, 165, 233, 0.1)
 }
 
 .try-it-btn:hover {
   background: var(--accent-gradient);
-  border-color: transparent;
   color: #f1f2f4;
 }
 
 .api-demo {
-  display: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   flex-direction: column;
   gap: 1.2rem;
   background: var(--box-bg);
@@ -1259,6 +1273,11 @@ footer {
   margin-bottom: 1.2rem;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+}
+
+.api-demo.open {
+  max-height: 40rem;
+  opacity: 1;
 }
 
 .api-demo.open {
@@ -1333,20 +1352,21 @@ footer {
   align-items: center;
   gap: 0.5rem;
   padding: 0.7rem 1.4rem;
-  background: var(--accent-gradient);
-  color: #f1f2f4;
+  background: rgba(14, 165, 233, 0.1);
+  color: #0ea5e9;
   font-size: 1.3rem;
   font-weight: 600;
   font-family: inherit;
   border: none;
   border-radius: 0.6rem;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.15s ease;
+  transition: all 0.25s ease;
   white-space: nowrap;
 }
 
 .api-send-btn:hover {
-  opacity: 0.85;
+  background: var(--accent-gradient);
+  color: #f1f2f4;
 }
 
 .api-send-btn:active {
@@ -1373,10 +1393,213 @@ footer {
   margin: 0;
 }
 
+[data-theme="light"] .api-response {
+  background: rgba(0, 0, 0, 0.06);
+}
+
 .api-response.success {
-  color: #22c55e;
+  color: #16a34a;
+}
+
+[data-theme="light"] .api-response.success {
+  color: #15803d;
 }
 
 .api-response.error {
   color: #f87171;
+}
+
+.api-spinner {
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid rgba(14, 165, 233, 0.2);
+  border-top-color: #0ea5e9;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.api-response--idle::before {
+  content: "send a request to see the response";
+  color: var(--text-secondary);
+  font-style: italic;
+  opacity: 0.5;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   E-COMMERCE DEMO PANEL
+   ========================================================================== */
+
+.ecom-token-bar {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.6rem;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.ecom-token-bar.logged-in {
+  background: rgba(22, 163, 74, 0.1);
+  color: #16a34a;
+}
+
+/* İki sütunlu selector */
+.ecom-selectors {
+  display: flex;
+  gap: 0.6rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.ecom-selector-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* Sol sütun — model adları */
+#ecom-groups {
+  min-width: 10rem;
+  background: rgba(0,0,0,0.08);
+  border-radius: 0.8rem;
+  padding: 0.4rem;
+}
+
+[data-theme="light"] #ecom-groups {
+  background: rgba(0,0,0,0.05);
+}
+
+.ecom-group-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-mono, monospace);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ecom-group-btn:hover {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text-primary);
+}
+
+.ecom-group-btn.active {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+/* Sağ sütun — endpointlər */
+#ecom-ep-list {
+  flex: 1;
+  background: rgba(0,0,0,0.05);
+  border-radius: 0.8rem;
+  padding: 0.4rem;
+}
+
+[data-theme="light"] #ecom-ep-list {
+  background: rgba(0,0,0,0.03);
+}
+
+.ecom-ep-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.ecom-ep-item:hover {
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.ecom-ep-item.active {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.ecom-ep-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+/* Method badges */
+.ecom-method-badge {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.4rem;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.badge-get    { background: rgba(34, 197, 94, 0.15);  color: #22c55e; }
+.badge-post   { background: rgba(14, 165, 233, 0.15); color: #0ea5e9; }
+.badge-put    { background: rgba(234, 179, 8, 0.15);  color: #ca8a04; }
+.badge-delete { background: rgba(239, 68, 68, 0.15);  color: #ef4444; }
+
+/* URL bar */
+.ecom-url-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0.7rem;
+  min-height: 3.4rem;
+}
+
+[data-theme="light"] .ecom-url-bar {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.ecom-url-path {
+  font-family: var(--font-mono, monospace);
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  word-break: break-all;
+}
+
+/* Input grid */
+.ecom-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 14rem;
+  flex: 1;
+}
+
+#ecom-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ecom-native-select {
+  appearance: none;
+}
+
+#ecommerce-demo.open {
+  max-height: 80rem;
 }

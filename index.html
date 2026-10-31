@@ -116,14 +116,44 @@
                   <input class="api-input" type="text" placeholder="e.g. London" id="weather-city-input" />
                   <button class="api-send-btn" data-api="weather">Send <i class="fa-solid fa-paper-plane"></i></button>
                 </div>
-                <pre class="api-response" id="weather-response">// response will appear here</pre>
+                <pre class="api-response api-response--idle" id="weather-response"></pre>
               </div>
             </li>
-            <li>
+            <li class="project-item-with-demo">
               <i class="fa-solid fa-cart-shopping"></i>
               <span class="project-name">Simple E-Commerce API</span>
               <a href="https://github.com/ismailselimzade/SimpleECommerceAPI" target="_blank" rel="noopener"
                 class="link-badge"><i class="fa-brands fa-github"></i> repo</a>
+              <button class="link-badge try-it-btn" data-demo="ecommerce-demo">
+                <i class="fa-solid fa-play"></i> try it
+              </button>
+              <div class="api-demo" id="ecommerce-demo">
+
+                <div class="ecom-token-bar" id="ecom-token-bar">
+                  <i class="fa-solid fa-circle-xmark"></i> not logged in
+                </div>
+
+                <div class="ecom-selectors">
+                  <div class="ecom-selector-col" id="ecom-groups">
+                    <button class="ecom-group-btn active" data-group="auth">auth</button>
+                    <button class="ecom-group-btn" data-group="categories">categories</button>
+                    <button class="ecom-group-btn" data-group="products">products</button>
+                    <button class="ecom-group-btn" data-group="cart">cart</button>
+                    <button class="ecom-group-btn" data-group="orders">orders</button>
+                  </div>
+                  <div class="ecom-selector-col" id="ecom-ep-list"></div>
+                </div>
+
+                <div class="ecom-url-bar" id="ecom-url-bar"></div>
+
+                <div class="api-inputs" id="ecom-inputs"></div>
+
+                <button class="api-send-btn" id="ecom-send-btn">
+                  Send <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+                <pre class="api-response api-response--idle" id="ecom-response"></pre>
+              </div>
             </li>
             <li>
               <i class="fa-solid fa-wallet"></i>
