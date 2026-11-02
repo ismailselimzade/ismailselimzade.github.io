@@ -15,8 +15,7 @@ ol {
 }
 
 html {
-  /* Ekran ölçüsündən asılı olaraq şrift ölçüsünü avtomatik tənzimləyirik */
-  font-size: clamp(7.5px, 6.2px + 0.9vw, 10px);
+  font-size: clamp(8px, 6.2px + 0.9vw, 10px);
 }
 
 ul,
@@ -769,7 +768,7 @@ html[lang="tr"] .certificates-tab {
 
 .backend-projects.open,
 .frontend-projects.open {
-  max-height: 300rem;
+  max-height: 1500px;
   opacity: 1;
 }
 
@@ -895,7 +894,7 @@ html[lang="tr"] .certificates-tab {
 }
 
 .skill-panel.open {
-  max-height: 40rem;
+  max-height: 600px;
   opacity: 1;
 }
 
@@ -1015,7 +1014,7 @@ i.cert-toggle-icon {
 }
 
 .cert-panel.open {
-  max-height: 60rem;
+  max-height: 1000px;
   opacity: 1;
 }
 
@@ -1176,7 +1175,7 @@ footer {
 .api-method {
   font-size: 1rem;
   font-weight: 700;
-  padding: 0.2rem 0.6rem; 
+  padding: 0.2rem 0.6rem;
   border-radius: 0.4rem;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -1274,7 +1273,6 @@ footer {
   width: 100%;
 }
 
-/* E-commerce inputlarını grid sistemi ilə səliqəli düzürük */
 #ecom-inputs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1413,7 +1411,6 @@ footer {
   font-size: 1.2rem;
 }
 
-/* E-Commerce xüsusi elementlər */
 .ecom-token-bar {
   font-size: 1.2rem;
   padding: 0.5rem 1rem;

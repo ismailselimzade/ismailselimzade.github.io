@@ -6,6 +6,7 @@
 
 const translations = {
   az: {
+    jobTitle: ".NET Developer",
     tabProjects: "layihələr",
     tabSkills: "bacarıqlar",
     tabCertificates: "sertifikatlar",
@@ -78,8 +79,18 @@ const translations = {
     ph_cartId: "səbət ID",
     ph_orderId: "sifariş ID",
     ph_CartId: "səbət ID",
+    // HTTP status codes and messages (AZ)
+    status_400: "Yanlış sorğu (Bad Request)",
+    status_401: "Avtorizasiya tələb olunur (Unauthorized)",
+    status_403: "Bu əməliyyat üçün icazəniz yoxdur (Forbidden)",
+    status_404: "Axtarılan resurs tapılmadı (Not Found)",
+    status_405: "Bu HTTP metodu bu endpoint üçün dəstəklənmir (Method Not Allowed)",
+    status_500: "Server daxili xətası baş verdi (Internal Server Error)",
+    response_empty_ok: "Sorğu uğurlu oldu, lakin geri data dönmədi (No Content)",
+    response_empty_err: "Sorğu uğursuz oldu və cavab gövdəsi boşdur",
   },
   tr: {
+    jobTitle: ".NET Developer",
     tabProjects: "projeler",
     tabSkills: "yetenekler",
     tabCertificates: "sertifikalar",
@@ -150,8 +161,18 @@ const translations = {
     ph_cartId: "sepet ID",
     ph_orderId: "sipariş ID",
     ph_CartId: "sepet ID",
+    // HTTP status codes and messages (TR)
+    status_400: "Geçersiz istek (Bad Request)",
+    status_401: "Yetkilendirme gerekiyor (Unauthorized)",
+    status_403: "Bu işlem için yetkiniz yok (Forbidden)",
+    status_404: "Aranan kaynak bulunamadı (Not Found)",
+    status_405: "Bu HTTP metodu bu endpoint için desteklenmiyor (Method Not Allowed)",
+    status_500: "Sunucu hatası oluştu (Internal Server Error)",
+    response_empty_ok: "İstek başarılı oldu, ancak veri dönmedi (No Content)",
+    response_empty_err: "İstek başarısız oldu ve yanıt gövdesi boş",
   },
   en: {
+    jobTitle: ".NET Developer",
     tabProjects: "projects",
     tabSkills: "skills",
     tabCertificates: "certificates",
@@ -222,6 +243,15 @@ const translations = {
     ph_cartId: "cart ID",
     ph_orderId: "order ID",
     ph_CartId: "cart ID",
+    // HTTP status codes and messages
+    status_400: "Bad Request — Invalid syntax or parameters",
+    status_401: "Unauthorized — Authentication is required",
+    status_403: "Forbidden — You do not have permission",
+    status_404: "Not Found — The requested resource does not exist",
+    status_405: "Method Not Allowed — Check HTTP method or route",
+    status_500: "Internal Server Error",
+    response_empty_ok: "Request was successful, but no content was returned",
+    response_empty_err: "Request failed and response body is empty",
   },
 };
 
@@ -246,7 +276,6 @@ const setLanguage = (lang) => {
   if (!dict) return;
 
   i18nEls.forEach((el) => {
-    // 1. data-i18n atributu olan elementlərin mətnini yeniləyirik
     const key = el.getAttribute("data-i18n");
     if (key && dict[key]) {
       const icon = el.querySelector(".toggle-icon");
@@ -258,33 +287,28 @@ const setLanguage = (lang) => {
       }
     }
 
-    // 2. data-i18n-placeholder atributu olan input-ların placeholder-ini yeniləyirik
     const placeholderKey = el.getAttribute("data-i18n-placeholder");
     if (placeholderKey && dict[placeholderKey]) {
       el.placeholder = dict[placeholderKey];
     }
   });
 
-  // 3. Əgər E-commerce paneli aktivdirsə, seçilmiş endpoint-in açıqlamasını da cari dilə uyğun yeniləyirik
-  if (typeof ecomActiveKey !== "undefined" && ecomActiveKey) {
-    const descEl = document.getElementById("ecom-ep-desc");
-    if (descEl && dict[`ecom_${ecomActiveKey}`]) {
-      descEl.textContent = dict[`ecom_${ecomActiveKey}`];
-    }
-  }
-
-  // 4. Token bar mətnini yeniləyirik (yalnız "not logged in" vəziyyətindədirsə)
   const tokenBar = document.getElementById("ecom-token-bar");
   if (tokenBar && !tokenBar.classList.contains("logged-in")) {
     tokenBar.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${dict.ecomNotLoggedIn}`;
   }
 
-  // 4b. Aktiv endpoint varsa inputları yeni dilə uyğun yenidən render edirik
   if (ecomActiveKey && typeof ecomEndpoints !== "undefined" && ecomInputsEl) {
     const ep = ecomEndpoints[ecomActiveKey];
     if (ep) {
-      ecomInputsEl.innerHTML = ep.inputs().join("");
-      ecomInputsEl.style.display = "flex";
+      ecomInputsEl.innerHTML = ep.inputs().join("") + `
+        <div class="ecom-field ecom-send-field">
+          <label class="api-label">&nbsp;</label>
+          <button class="api-send-btn" id="ecom-send-btn">Send <i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      `;
+      ecomSendBtn = document.getElementById("ecom-send-btn");
+      if (ecomSendBtn) ecomSendBtn.addEventListener("click", handleEcomSend);
     }
     const descEl = document.getElementById("ecom-ep-desc");
     if (descEl && dict[`ecom_${ecomActiveKey}`]) {
@@ -292,32 +316,28 @@ const setLanguage = (lang) => {
     }
   }
 
-  // 5. Yuxarı menyudakı dil ikonunu/bayrağını tənzimləyirik
   if (lang === "en") {
     langIcon.innerHTML = '<span class="lang-flag-text">EN</span>';
   } else {
     langIcon.innerHTML = `<img class="lang-flag" src="${langFlagUrls[lang]}" alt="${lang.toUpperCase()}" />`;
   }
 
-  // HTML lang atributunu yeniləyirik və açılan menyunu bağlayırıq
   document.documentElement.setAttribute("lang", lang);
   langMenu.classList.remove("open");
   container.classList.remove("blur-bg-lang");
 };
 
-// Dil menyusunu açma/bağlama hadisəsi
 langIcon.addEventListener("click", () => {
   langMenu.classList.toggle("open");
   container.classList.toggle("blur-bg-lang", langMenu.classList.contains("open"));
 });
 
-// Seçilən dilə əsasən setLanguage funksiyasını çağırırıq
 langOptions.forEach((btn) => {
   btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
 });
 
 /* ==========================================================================
-   2. Tema Dəyişdirici (Light / Dark Mode)
+   2. TEMA DƏYİŞDİRİCİ (Light / Dark Mode)
    ========================================================================== */
 
 const themeButton = document.querySelector(".theme-icon");
@@ -453,7 +473,6 @@ window.addEventListener("scroll", () => {
   topbar.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-// Elementlərin ekrana gələndə üzə çıxması (IntersectionObserver)
 document.querySelectorAll(".my-skills, .certificates").forEach((el) => el.classList.add("reveal"));
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -589,13 +608,11 @@ const ecomGroups = {
   ],
 };
 
-const methodColors = { GET: "badge-get", POST: "badge-post", PUT: "badge-put", DELETE: "badge-delete" };
-
 const methodDescColors = {
-  GET:    { color: "rgba(34, 197, 94, 0.8)",  bg: "rgba(34, 197, 94, 0.07)" },
-  POST:   { color: "rgba(14, 165, 233, 0.8)", bg: "rgba(14, 165, 233, 0.07)" },
-  PUT:    { color: "rgba(202, 138, 4, 0.8)",  bg: "rgba(234, 179, 8, 0.07)" },
-  DELETE: { color: "rgba(239, 68, 68, 0.8)",  bg: "rgba(239, 68, 68, 0.07)" },
+  GET: { color: "rgba(34, 197, 94, 0.8)", bg: "rgba(34, 197, 94, 0.07)" },
+  POST: { color: "rgba(14, 165, 233, 0.8)", bg: "rgba(14, 165, 233, 0.07)" },
+  PUT: { color: "rgba(202, 138, 4, 0.8)", bg: "rgba(234, 179, 8, 0.07)" },
+  DELETE: { color: "rgba(239, 68, 68, 0.8)", bg: "rgba(239, 68, 68, 0.07)" },
 };
 
 function setDescColor(el, method) {
@@ -632,8 +649,24 @@ const ecomEndpoints = {
   // Auth
   register: { method: "POST", urlTemplate: "/api/auth/register", auth: false, authLevel: null, inputs: () => [ecomField("UserName", "UserName"), ecomField("Email", "Email", "email"), ecomField("Password", "Password", "password")], path: () => "/api/auth/register", body: () => ({ UserName: v("UserName"), Email: v("Email"), Password: v("Password") }) },
   login: { method: "POST", urlTemplate: "/api/auth/login", auth: false, authLevel: null, inputs: () => [ecomField("UserName", "UserName"), ecomField("Password", "Password", "password")], path: () => "/api/auth/login", body: () => ({ UserName: v("UserName"), Password: v("Password") }) },
-  refresh: { method: "POST", urlTemplate: "/api/auth/refresh", auth: false, authLevel: null, inputs: () => [ecomField("Token", "Token")], path: () => "/api/auth/refresh", body: () => ({ Token: v("Token") || ecomRefreshToken || "" }) },
-  logout: { method: "POST", urlTemplate: "/api/auth/logout", auth: false, authLevel: null, inputs: () => [ecomField("Token", "Token")], path: () => "/api/auth/logout", body: () => ({ Token: v("Token") || ecomRefreshToken || "" }) },
+  refresh: {
+    method: "POST",
+    urlTemplate: "/api/auth/refresh",
+    auth: false,
+    authLevel: null,
+    inputs: () => [ecomField("Token", "Token")],
+    path: () => "/api/auth/refresh",
+    body: () => ({ Token: v("Token") })
+  }, 
+  logout: 
+  { 
+    method: "POST", 
+    urlTemplate: "/api/auth/logout", 
+    auth: false, 
+    authLevel: null, 
+    inputs: () => [ecomField("Token", "Token")], 
+    path: () => "/api/auth/logout", 
+    body: () => ({ Token: v("Token") }) },
 
   // Categories
   getCategories: { method: "GET", urlTemplate: "/api/categories", auth: false, authLevel: null, inputs: () => [], path: () => "/api/categories", body: () => null },
@@ -671,13 +704,14 @@ function v(id) {
 
 function ecomRenderEpList(group) {
   const items = ecomGroups[group];
+  if (!items || !ecomEpList) return;
+
   ecomEpList.innerHTML = items.map(ep =>
     `<button class="ecom-ep-item" data-key="${ep.key}">
       <span class="api-method ${ep.method.toLowerCase()}">${ep.method}</span>
       <span class="ecom-ep-label">${ep.label}</span>
     </button>`
   ).join("");
-  // ...
 
   ecomEpList.querySelectorAll(".ecom-ep-item").forEach(item => {
     item.addEventListener("click", () => {
@@ -697,28 +731,26 @@ document.querySelectorAll(".ecom-group-btn").forEach(btn => {
     const descEl = document.getElementById("ecom-ep-desc");
     if (descEl) descEl.style.display = "none";
     ecomActiveKey = null;
-    ecomUrlBar.innerHTML = "";
-    ecomInputsEl.innerHTML = "";
-    ecomUrlBar.style.display = "none";
-    ecomInputsEl.style.display = "none";
-    ecomResponseEl.textContent = "";
-    ecomResponseEl.className = "api-response api-response--idle";
+    if (ecomUrlBar) { ecomUrlBar.innerHTML = ""; ecomUrlBar.style.display = "none"; }
+    if (ecomInputsEl) { ecomInputsEl.innerHTML = ""; ecomInputsEl.style.display = "none"; }
+    if (ecomResponseEl) { ecomResponseEl.textContent = ""; ecomResponseEl.className = "api-response api-response--idle"; }
   });
 });
-
-ecomRenderEpList("auth");
 
 function ecomSelectEndpoint(key) {
   ecomActiveKey = key;
   const ep = ecomEndpoints[key];
   if (!ep) return;
 
-  ecomUrlBar.innerHTML = `
-    <span class="api-method ${ep.method.toLowerCase()}">${ep.method}</span>
-    <span class="ecom-url-path">${ECOM_BASE_URL}${ep.urlTemplate}</span>
-    ${ep.authLevel === "admin" ? '<span class="ecom-auth-badge ecom-auth-badge--admin"><i class="fa-solid fa-shield-halved"></i> Admin</span>' : ''}
-    ${ep.authLevel === "user" ? '<span class="ecom-auth-badge ecom-auth-badge--user"><i class="fa-solid fa-lock"></i> Auth</span>' : ''}
-  `;
+  if (ecomUrlBar) {
+    ecomUrlBar.innerHTML = `
+      <span class="api-method ${ep.method.toLowerCase()}">${ep.method}</span>
+      <span class="ecom-url-path">${ECOM_BASE_URL}${ep.urlTemplate}</span>
+      ${ep.authLevel === "admin" ? '<span class="ecom-auth-badge ecom-auth-badge--admin"><i class="fa-solid fa-shield-halved"></i> Admin</span>' : ''}
+      ${ep.authLevel === "user" ? '<span class="ecom-auth-badge ecom-auth-badge--user"><i class="fa-solid fa-lock"></i> Auth</span>' : ''}
+    `;
+    ecomUrlBar.style.display = "flex";
+  }
 
   const currentLang = document.documentElement.getAttribute("lang") || "en";
   const descEl = document.getElementById("ecom-ep-desc");
@@ -730,18 +762,25 @@ function ecomSelectEndpoint(key) {
     setDescColor(descEl, ep.method);
   }
 
-  ecomInputsEl.innerHTML = ep.inputs().join("") + `
-    <div class="ecom-field ecom-send-field">
-      <label class="api-label">&nbsp;</label>
-      <button class="api-send-btn" id="ecom-send-btn">Send <i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-  `;
-  ecomSendBtn = document.getElementById("ecom-send-btn");
-  ecomSendBtn.addEventListener("click", handleEcomSend);
-  ecomResponseEl.textContent = "";
-  ecomResponseEl.className = "api-response api-response--idle";
-  ecomUrlBar.style.display = "flex";
-  ecomInputsEl.style.display = "grid";
+  if (ecomInputsEl) {
+    ecomInputsEl.innerHTML = ep.inputs().join("") + `
+      <div class="ecom-field ecom-send-field">
+        <label class="api-label">&nbsp;</label>
+        <button class="api-send-btn" id="ecom-send-btn">Send <i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    `;
+    ecomInputsEl.style.display = "grid";
+    ecomSendBtn = document.getElementById("ecom-send-btn");
+    if (ecomSendBtn) ecomSendBtn.addEventListener("click", handleEcomSend);
+  }
+
+  if (ecomResponseEl) {
+    ecomResponseEl.textContent = "";
+    ecomResponseEl.className = "api-response api-response--idle";
+  }
+
+  const copyBtn = document.querySelector('[data-clipboard="ecom-response"]');
+  copyBtn?.classList.remove("visible");
 }
 
 const handleEcomSend = async () => {
@@ -749,10 +788,18 @@ const handleEcomSend = async () => {
   const ep = ecomEndpoints[ecomActiveKey];
   if (!ep) return;
 
-  ecomSendBtn.disabled = true;
-  const currentLang2 = document.documentElement.getAttribute("lang") || "en";
-  const dict2 = translations[currentLang2] || translations["en"];
-  ecomResponseEl.innerHTML = `<span class="api-spinner"></span> ${dict2.ecomLoading}`;
+  if (ecomSendBtn) ecomSendBtn.disabled = true;
+  const currentLang = document.documentElement.getAttribute("lang") || "en";
+  const dict = translations[currentLang] || translations["en"];
+
+  const copyBtn = document.querySelector('[data-clipboard="ecom-response"]');
+  copyBtn?.classList.remove("visible");
+
+  // 1. Loading başlayanda köhnə placeholder-i (idle klassını) silirik
+  if (ecomResponseEl) {
+    ecomResponseEl.innerHTML = `<span class="api-spinner"></span> ${dict.ecomLoading}`;
+    ecomResponseEl.className = "api-response";
+  }
 
   const headers = { "Content-Type": "application/json" };
   if (ep.auth && ecomAccessToken) headers["Authorization"] = `Bearer ${ecomAccessToken}`;
@@ -771,24 +818,45 @@ const handleEcomSend = async () => {
     if ((ecomActiveKey === "login" || ecomActiveKey === "register") && res.ok && data.accessToken) {
       ecomAccessToken = data.accessToken;
       ecomRefreshToken = data.refreshToken;
-      ecomTokenBar.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${dict2.ecomLoggedIn}`;
-      ecomTokenBar.className = "ecom-token-bar logged-in";
+      if (ecomTokenBar) {
+        ecomTokenBar.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${dict.ecomLoggedIn}`;
+        ecomTokenBar.className = "ecom-token-bar logged-in";
+      }
+    }
+
+    if (ecomActiveKey === "logout" && res.ok) {
+      ecomAccessToken = null;
+      ecomRefreshToken = null;
+      if (ecomTokenBar) {
+        ecomTokenBar.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${dict.ecomNotLoggedIn}`;
+        ecomTokenBar.className = "ecom-token-bar";
+      }
     }
 
     const isEmpty = data === null || data === undefined || data === "" ||
       (typeof data === "object" && Object.keys(data).length === 0);
 
-    if (isEmpty) {
-      ecomResponseEl.textContent = res.ok
-        ? `// ${res.status} No Content — request was successful`
-        : `// ${res.status} ${res.statusText}`;
-    } else {
-      ecomResponseEl.textContent = typeof data === "string" ? data : JSON.stringify(data, null, 2);
+    // 2. Status kodu, dilə uyğun açıqlama və gələn datanı ekrana yazdırırıq
+    if (ecomResponseEl) {
+      let statusDesc = dict[`status_${res.status}`] || `${res.status} ${res.statusText}`;
+      let output = `// Status: ${res.status} — ${statusDesc}\n`;
+
+      if (isEmpty) {
+        output += res.ok ? `// ${dict.response_empty_ok}` : `// ${dict.response_empty_err}`;
+      } else {
+        output += typeof data === "string" ? data : JSON.stringify(data, null, 2);
+      }
+
+      ecomResponseEl.textContent = output;
+      ecomResponseEl.className = res.ok ? "api-response success" : "api-response error";
+      copyBtn?.classList.add("visible");
     }
-    ecomResponseEl.className = res.ok ? "api-response success" : "api-response error";
   } catch {
-    ecomResponseEl.textContent = dict2.ecomError_connect;
-    ecomResponseEl.className = "api-response error";
+    if (ecomResponseEl) {
+      ecomResponseEl.textContent = dict.ecomError_connect;
+      ecomResponseEl.className = "api-response error";
+      copyBtn?.classList.add("visible");
+    }
   } finally {
     if (ecomSendBtn) ecomSendBtn.disabled = false;
   }
@@ -818,6 +886,7 @@ document.addEventListener("click", async (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  ecomRenderEpList("auth");
   if (ecomUrlBar) ecomUrlBar.style.display = "none";
   if (ecomInputsEl) ecomInputsEl.style.display = "none";
   setLanguage("en");

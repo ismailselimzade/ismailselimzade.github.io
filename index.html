@@ -15,9 +15,7 @@
 <body>
   <main class="container">
 
-    <!-- ==========================================================================
-       1. YUXARI MENYU (Dil seçimi və Tema keçidi)
-       ========================================================================== -->
+    <!-- 1. YUXARI MENYU (Dil seçimi və Tema keçidi) -->
     <section class="topbar">
       <div class="lang-wrapper">
         <button class="lang-icon" aria-label="Change language">
@@ -40,9 +38,7 @@
       </button>
     </section>
 
-    <!-- ==========================================================================
-       2. MƏLUMAT HİSSƏSİ (Ad, ixtisas və sosial keçidlər)
-       ========================================================================== -->
+    <!-- 2. MƏLUMAT HİSSƏSİ (Ad, ixtisas və sosial keçidlər) -->
     <section class="photo-info">
       <div class="info">
         <div class="info-name">İsmayıl Səlimzadə</div>
@@ -54,8 +50,8 @@
             </a>
           </div>
           <div>
-            <a href="https://www.linkedin.com/in/ismayıl-səlimzadə-a2746742b" target="_blank" rel="noopener"
-              aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/ismay%C4%B1l-s%C9%99limzad%C9%99-a2746742b" target="_blank"
+              rel="noopener" aria-label="LinkedIn">
               <i class="fa-brands fa-linkedin"></i>
             </a>
           </div>
@@ -63,9 +59,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       3. CV YÜKLƏMƏ MENYUSU (Müxtəlif dillərdə PDF)
-       ========================================================================== -->
+    <!-- 3. CV YÜKLƏMƏ MENYUSU (Müxtəlif dillərdə PDF) -->
     <section class="cv-contact">
       <div class="cv-wrapper">
         <button class="cv" aria-label="Download CV">
@@ -79,9 +73,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       4. NAVİQASİYA TABLARI (Projects / Skills / Certificates)
-       ========================================================================== -->
+    <!-- 4. NAVİQASİYA TABLARI (Projects / Skills / Certificates) -->
     <section class="portfolio-skills">
       <button class="portfolio active">
         <i class="fa-solid fa-briefcase"></i> <span data-i18n="tabProjects">projects</span>
@@ -94,9 +86,7 @@
       </button>
     </section>
 
-    <!-- ==========================================================================
-       5. PANEL 1: LAYİHƏLƏR (Backend & Frontend Akkorionları)
-       ========================================================================== -->
+    <!-- 5. PANEL 1: LAYİHƏLƏR (Backend & Frontend Akkorionları) -->
     <section class="projects">
 
       <!-- Backend Layihələri -->
@@ -126,8 +116,10 @@
                 <div class="api-inputs">
                   <label class="api-label" data-i18n="weatherCityLabel">city</label>
                   <div class="api-input-row">
-                    <input class="api-input" type="text" placeholder="e.g. London" data-i18n-placeholder="weatherCityPlaceholder" id="weather-city-input" />
-                    <button class="api-send-btn" data-api="weather"><span data-i18n="weatherSend">Send</span> <i class="fa-solid fa-paper-plane"></i></button>
+                    <input class="api-input" type="text" placeholder="e.g. London"
+                      data-i18n-placeholder="weatherCityPlaceholder" id="weather-city-input" />
+                    <button class="api-send-btn" data-api="weather"><span data-i18n="weatherSend">Send</span> <i
+                        class="fa-solid fa-paper-plane"></i></button>
                   </div>
                 </div>
                 <div class="api-demo-header">
@@ -169,10 +161,11 @@
                 <div class="api-desc" id="ecom-ep-desc" style="display: none; margin-top: 0.5rem;"></div>
 
                 <div class="api-inputs" id="ecom-inputs"></div>
+                
                 <div class="api-demo-header">
-                  <span class="api-label">Response</span>
+                  <span class="api-label" data-i18n="responseLabel">Response</span>
                   <button class="link-badge copy-btn" data-clipboard="ecom-response">
-                    <i class="fa-solid fa-copy"></i> copy
+                    <i class="fa-solid fa-copy"></i> <span data-i18n="copyBtn">copy</span>
                   </button>
                 </div>
                 <pre class="api-response api-response--idle" id="ecom-response"></pre>
@@ -273,9 +266,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       6. PANEL 2: BACARIQLAR (Skills Grid)
-       ========================================================================== -->
+    <!-- 6. PANEL 2: BACARIQLAR (Skills Grid) -->
     <section class="my-skills">
       <div class="my-skills-content skill-accordion-grid">
 
@@ -361,9 +352,7 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-       7. PANEL 3: SERTİFİKATLAR (Certificates Grid)
-       ========================================================================== -->
+    <!-- 7. PANEL 3: SERTİFİKATLAR (Certificates Grid) -->
     <section class="certificates">
 
       <!-- C++ Sertifikatı -->
@@ -477,17 +466,13 @@
 
     </section>
 
-    <!-- ==========================================================================
-       8. MODAL / LIGHTBOX (Sertifikat şəklinin tam ekranda görünüşü)
-       ========================================================================== -->
+    <!-- 8. MODAL / LIGHTBOX (Sertifikat şəklinin tam ekranda görünüşü) -->
     <div class="cert-lightbox">
       <span class="cert-lightbox-close">&times;</span>
       <img class="cert-lightbox-img" src="" alt="Certificate" />
     </div>
 
-    <!-- ==========================================================================
-       9. FOOTER HİSSƏSİ
-       ========================================================================== -->
+    <!-- 9. FOOTER HİSSƏSİ -->
     <footer>
       <span class="no-wrap">© İsmayıl Səlimzadə 2026</span>
       <span class="no-wrap" data-i18n="footerRights">All rights reserved.</span>
