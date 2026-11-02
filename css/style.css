@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET & BASE
+   1. ƏSAS AYARLAR VƏ RESET (HTML, Body, Elementlər)
    ========================================================================== */
 
 * {
@@ -15,8 +15,7 @@ ol {
 }
 
 html {
-    /* Axıcı font-size: 320px enində ~7.5px, 1200px+ enində 10px.
-     Beləliklə breakpoint-lərdə qəfil sıçrayış olmur, hər ekranda nisbət eyni qalır. */
+  /* Ekran ölçüsündən asılı olaraq şrift ölçüsünü avtomatik tənzimləyirik */
   font-size: clamp(7.5px, 6.2px + 0.9vw, 10px);
 }
 
@@ -44,10 +43,8 @@ a {
 }
 
 /* ==========================================================================
-   2. FONTS
+   2. ŞRİFTLƏR (Fonts)
    ========================================================================== */
-
-/* ========== CUSTOM VARIABLE FONTS ========== */
 
 @font-face {
   font-family: 'Inter';
@@ -57,7 +54,7 @@ a {
 }
 
 /* ==========================================================================
-   3. THEME VARIABLES
+   3. TƏMA DƏYƏRPƏLƏRİ VƏ DƏYİŞKƏNLƏR (Theme Variables)
    ========================================================================== */
 
 :root {
@@ -87,7 +84,7 @@ a {
 }
 
 /* ==========================================================================
-   4. BODY & ANIMATED BACKGROUND
+   4. ANA GÖVDƏ VƏ ANİMASİYALI FON (Body & Background)
    ========================================================================== */
 
 body {
@@ -136,7 +133,7 @@ main {
 }
 
 /* ==========================================================================
-   5. GLASSMORPHISM (shared blur/shadow + hover lift)
+   5. ORTAQ ŞÜŞƏ EFFEKTLƏRİ (Glassmorphism)
    ========================================================================== */
 
 .cv,
@@ -151,7 +148,8 @@ main {
 .cert-card,
 .portfolio-skills,
 .lang-menu,
-.cv-lang-menu {
+.cv-lang-menu,
+.api-demo {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: none;
@@ -175,7 +173,7 @@ main {
 }
 
 /* ==========================================================================
-   6. PAGE-LOAD ENTRANCE ANIMATIONS
+   6. ANİMASİYALAR (Feyd və Keçidlər)
    ========================================================================== */
 
 @keyframes fade-slide-up {
@@ -210,10 +208,6 @@ main {
   animation: fade-slide-up 0.6s ease 0.4s both;
 }
 
-/* ==========================================================================
-   7. TAB-SWITCH PANEL ANIMATION
-   ========================================================================== */
-
 @keyframes fade-slide-side {
   from {
     opacity: 0;
@@ -230,10 +224,6 @@ main {
   animation: fade-slide-side 0.4s ease both;
 }
 
-/* ==========================================================================
-   8. SCROLL-TRIGGERED REVEAL (IntersectionObserver hook)
-   ========================================================================== */
-
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -246,7 +236,7 @@ main {
 }
 
 /* ==========================================================================
-   9. CURSOR-FOLLOW GLOW (cards get a glow div appended via JS)
+   7. HOVER EFFEKTLƏRİ VƏ İŞIQLANMA (Glow Effect)
    ========================================================================== */
 
 .skill-card,
@@ -285,7 +275,7 @@ main {
 }
 
 /* ==========================================================================
-   10. SCROLLBAR
+   8. SKROLBAR (Scrollbar Dizaynı)
    ========================================================================== */
 
 ::-webkit-scrollbar {
@@ -302,7 +292,7 @@ main {
 }
 
 /* ==========================================================================
-   11. TOPBAR (lang switcher + theme toggle)
+   9. YUXARI MENYU (Topbar, Dil və Təma Düymələri)
    ========================================================================== */
 
 .topbar {
@@ -316,8 +306,6 @@ main {
   top: 0;
   z-index: 30;
   background-color: transparent;
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
@@ -394,7 +382,6 @@ main {
 .lang-option .lang-flag {
   width: 2rem;
   height: 1.5rem;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
 }
 
 .lang-option:hover {
@@ -425,9 +412,7 @@ main {
   border-radius: 0.5rem;
   color: var(--text-secondary);
   background-color: var(--theme-icon-bg);
-  box-shadow:
-    -2px -2px 5px rgba(255, 255, 255, 0.2),
-    3px 3px 6px rgba(0, 0, 0, 0.45);
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.2), 3px 3px 6px rgba(0, 0, 0, 0.45);
   transition: all 0.2s ease;
 }
 
@@ -435,9 +420,7 @@ main {
 [data-theme="dark"] .theme-icon-moon-half {
   color: #0c151d;
   background-color: #ffe071;
-  box-shadow:
-    inset -2px -2px 4px rgba(255, 255, 255, 0.25),
-    inset 2px 2px 5px rgba(0, 0, 0, 0.45);
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.25), inset 2px 2px 5px rgba(0, 0, 0, 0.45);
 }
 
 .theme-icon-half:active {
@@ -445,7 +428,7 @@ main {
 }
 
 /* ==========================================================================
-   12. CONTAINER + DROPDOWN BLUR EFFECT
+   10. KONTEYNER VƏ BLOYF (Blur) EFFEKTLƏRİ
    ========================================================================== */
 
 .container {
@@ -459,12 +442,7 @@ main {
   flex: 1;
 }
 
-.container.blur-bg-cv>*:not(.cv-contact) {
-  filter: blur(6px);
-  transition: filter 0.3s ease;
-  pointer-events: none;
-}
-
+.container.blur-bg-cv>*:not(.cv-contact),
 .container.blur-bg-lang>*:not(.topbar) {
   filter: blur(6px);
   transition: filter 0.3s ease;
@@ -472,7 +450,7 @@ main {
 }
 
 /* ==========================================================================
-   13. TACTILE PRESS FEEDBACK (shared :active state)
+   11. DÜYMƏLƏRİN BASILMA EFFEKTLƏRİ (Tactile Feedback)
    ========================================================================== */
 
 .cv,
@@ -507,7 +485,7 @@ main {
 }
 
 /* ==========================================================================
-   14. PHOTO-INFO (name, job title, socials)
+   12. ŞƏXSİ MƏLUMATLAR VƏ SOSİAL Keçidlər (Photo-Info)
    ========================================================================== */
 
 .photo-info {
@@ -541,8 +519,7 @@ main {
 .info-job {
   font-weight: 500;
   font-size: 2.2rem;
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
+  margin: 1.2rem 0;
   color: var(--text-secondary);
 }
 
@@ -574,7 +551,7 @@ main {
 }
 
 /* ==========================================================================
-   15. CV DOWNLOAD BUTTON + LANGUAGE DROPDOWN
+   13. CV YÜKLƏMƏ VƏ DİL MENYUSU
    ========================================================================== */
 
 .cv-contact {
@@ -657,7 +634,7 @@ main {
 }
 
 /* ==========================================================================
-   16. PORTFOLIO / SKILLS / CERTIFICATES TAB BAR
+   14. PORTFOLİO TABS (Layihələr, Bacarıqlar, Sertifikatlar menyusu)
    ========================================================================== */
 
 .portfolio-skills {
@@ -701,7 +678,6 @@ main {
   margin-right: 0.5rem;
 }
 
-/* AZ/TR mətnləri EN-dən uzun olduğu üçün bir az kiçildilir */
 html[lang="az"] .portfolio,
 html[lang="az"] .skills,
 html[lang="az"] .certificates-tab,
@@ -719,14 +695,14 @@ html[lang="tr"] .certificates-tab {
 }
 
 /* ==========================================================================
-   17. PROJECTS (backend/frontend accordions + link badges)
+   15. PROYEKTLƏR (Projects & Accordions)
    ========================================================================== */
 
 .projects {
   width: 90%;
-  height: 100%;
-  margin: 0 auto;
-  margin-top: 2rem;
+  height: auto !important;
+  margin: 2rem auto 0;
+  position: relative;
 }
 
 .accordion-item {
@@ -793,7 +769,7 @@ html[lang="tr"] .certificates-tab {
 
 .backend-projects.open,
 .frontend-projects.open {
-  max-height: 100rem;
+  max-height: 300rem;
   opacity: 1;
 }
 
@@ -863,14 +839,13 @@ html[lang="tr"] .certificates-tab {
 }
 
 /* ==========================================================================
-   18. SKILLS (accordion grid + skill cards)
+   16. BACARIQLAR (Skills Grid)
    ========================================================================== */
 
 .my-skills {
   width: 90%;
   height: 100%;
-  margin: 0 auto;
-  margin-top: 2rem;
+  margin: 2rem auto 0;
   display: none;
 }
 
@@ -973,14 +948,13 @@ html[lang="tr"] .certificates-tab {
 }
 
 /* ==========================================================================
-   19. CERTIFICATES (accordion + cards + lightbox)
+   17. SERTİFİKATLAR (Certificates & Lightbox)
    ========================================================================== */
 
 .certificates {
   width: 90%;
   height: 100%;
-  margin: 0 auto;
-  margin-top: 2rem;
+  margin: 2rem auto 0;
   display: none;
 }
 
@@ -1003,10 +977,6 @@ html[lang="tr"] .certificates-tab {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.cert-toggle span i.cert-toggle-icon {
-  margin-left: 0;
 }
 
 .cert-toggle-icon {
@@ -1138,7 +1108,7 @@ i.cert-toggle-icon {
 }
 
 /* ==========================================================================
-   20. FOOTER
+   18. FOOTER
    ========================================================================== */
 
 footer {
@@ -1158,101 +1128,17 @@ footer {
 }
 
 /* ==========================================================================
-   21. RESPONSIVE
-   ========================================================================== */
-
-@media (max-width: 768px) {
-  .container {
-    width: 92%;
-    height: auto;
-  }
-
-  .photo-info {
-    flex-direction: column;
-    margin-top: 3rem;
-  }
-
-  .info {
-    margin-top: 2rem;
-  }
-}
-
-@media (max-width: 505px) {
-  .skill-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .skill-accordion-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cv-contact {
-    gap: 1.2rem;
-    position: relative;
-    z-index: 20;
-  }
-
-  .cv {
-    padding: 1.6rem 4rem;
-  }
-
-  .project-list li {
-    gap: 0.8rem;
-  }
-
-  .project-list li i {
-    font-size: 1.5rem;
-    width: 1.6rem;
-  }
-
-  .project-name {
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
-  }
-
-  .link-badge {
-    font-size: 1.05rem;
-    margin-left: 0.4rem;
-  }
-
-  .project-list .link-badge i,
-  .cert-info .link-badge i {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 390px) {
-  .info-name {
-    font-size: 3.6rem;
-  }
-
-  .cv {
-    padding: 1.4rem 3rem;
-  }
-
-  .portfolio-skills {
-    width: 94%;
-    gap: 0.4rem;
-    padding: 0.6rem;
-  }
-}
-
-/* ==========================================================================
-   22. API DEMO PANEL
+   19. API DEMO PANELİ (Interaktiv API Test Panelləri)
    ========================================================================== */
 
 .project-item-with-demo {
   flex-wrap: wrap;
 }
 
-.api-demo {
-  width: 100%;
-}
-
 .try-it-btn {
   margin-left: auto;
   color: #0ea5e9;
-  background: rgba(14, 165, 233, 0.1)
+  background: rgba(14, 165, 233, 0.1);
 }
 
 .try-it-btn:hover {
@@ -1261,27 +1147,23 @@ footer {
 }
 
 .api-demo {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
+  width: 100%;
+  max-height: none !important;
+  height: auto;
+  overflow: visible;
+  display: none;
   flex-direction: column;
   gap: 1.2rem;
   background: var(--box-bg);
   border-radius: 1rem;
   padding: 1.6rem;
-  margin-bottom: 1.2rem;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  margin-bottom: 0.1rem;
 }
 
-.api-demo.open {
-  max-height: 40rem;
-  opacity: 1;
-}
-
-.api-demo.open {
-  display: flex;
+.api-demo.open,
+#ecommerce-demo.open {
+  display: flex !important;
+  max-height: none !important;
 }
 
 .api-endpoint {
@@ -1292,16 +1174,47 @@ footer {
 }
 
 .api-method {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
-  padding: 0.3rem 0.8rem;
-  border-radius: 0.5rem;
+  padding: 0.2rem 0.6rem; 
+  border-radius: 0.4rem;
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 .api-method.get {
   background: rgba(34, 197, 94, 0.15);
   color: #22c55e;
+}
+
+.api-method.post {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0ea5e9;
+}
+
+.api-method.put {
+  background: rgba(234, 179, 8, 0.15);
+  color: #ca8a04;
+}
+
+.api-method.delete {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.badge-post {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0ea5e9;
+}
+
+.badge-put {
+  background: rgba(234, 179, 8, 0.15);
+  color: #ca8a04;
+}
+
+.badge-delete {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
 }
 
 .api-path {
@@ -1311,15 +1224,64 @@ footer {
 }
 
 .api-desc {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--text-secondary);
-}
-
-.api-inputs {
+  background: var(--api-desc-bg, rgba(14, 165, 233, 0.07));
+  border-left: 2px solid var(--api-desc-color, rgba(14, 165, 233, 0.5));
+  border-radius: 0 0.4rem 0.4rem 0;
+  padding: 0.5rem 0.9rem;
   display: flex;
   align-items: center;
+  gap: 0.7rem;
+  opacity: 0.85;
+}
+
+.api-desc::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--api-desc-color, rgba(14, 165, 233, 0.6));
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--api-desc-color, #0ea5e9);
+  flex-shrink: 0;
+  line-height: 1.6rem;
+  margin-right: 0.9rem;
+}
+
+.api-inputs,
+.ecom-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.ecom-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  width: 100%;
+}
+
+.ecom-field .api-input {
+  width: 100%;
+}
+
+/* E-commerce inputlarını grid sistemi ilə səliqəli düzürük */
+#ecom-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
-  flex-wrap: wrap;
+  align-items: end;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .api-label {
@@ -1350,11 +1312,11 @@ footer {
 .api-send-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 1.4rem;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
   background: rgba(14, 165, 233, 0.1);
   color: #0ea5e9;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
   font-family: inherit;
   border: none;
@@ -1362,6 +1324,23 @@ footer {
   cursor: pointer;
   transition: all 0.25s ease;
   white-space: nowrap;
+  align-self: flex-end;
+}
+
+.api-input-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.api-input-row .api-input {
+  flex: 1;
+}
+
+.ecom-send-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .api-send-btn:hover {
@@ -1420,7 +1399,9 @@ footer {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .api-response--idle::before {
@@ -1432,10 +1413,7 @@ footer {
   font-size: 1.2rem;
 }
 
-/* ==========================================================================
-   E-COMMERCE DEMO PANEL
-   ========================================================================== */
-
+/* E-Commerce xüsusi elementlər */
 .ecom-token-bar {
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
@@ -1452,7 +1430,6 @@ footer {
   color: #16a34a;
 }
 
-/* İki sütunlu selector */
 .ecom-selectors {
   display: flex;
   gap: 0.6rem;
@@ -1466,16 +1443,11 @@ footer {
   gap: 0.2rem;
 }
 
-/* Sol sütun — model adları */
 #ecom-groups {
   min-width: 10rem;
-  background: rgba(0,0,0,0.08);
+  background: rgba(0, 0, 0, 0.08);
   border-radius: 0.8rem;
   padding: 0.4rem;
-}
-
-[data-theme="light"] #ecom-groups {
-  background: rgba(0,0,0,0.05);
 }
 
 .ecom-group-btn {
@@ -1487,10 +1459,8 @@ footer {
   border: none;
   background: transparent;
   color: var(--text-secondary);
-  font-family: var(--font-mono, monospace);
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
 }
 
 .ecom-group-btn:hover {
@@ -1504,16 +1474,11 @@ footer {
   font-weight: 600;
 }
 
-/* Sağ sütun — endpointlər */
 #ecom-ep-list {
   flex: 1;
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 0.8rem;
   padding: 0.4rem;
-}
-
-[data-theme="light"] #ecom-ep-list {
-  background: rgba(0,0,0,0.03);
 }
 
 .ecom-ep-item {
@@ -1527,39 +1492,40 @@ footer {
   background: transparent;
   cursor: pointer;
   text-align: left;
-  transition: background 0.15s;
 }
 
-.ecom-ep-item:hover {
-  background: rgba(148, 163, 184, 0.1);
-}
-
+.ecom-ep-item:hover,
 .ecom-ep-item.active {
   background: rgba(148, 163, 184, 0.15);
 }
 
 .ecom-ep-label {
-  font-family: var(--font-mono, monospace);
   font-size: 1.2rem;
   color: var(--text-primary);
 }
 
-/* Method badges */
-.ecom-method-badge {
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.15rem 0.5rem;
+.ecom-auth-badge {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   border-radius: 0.4rem;
-  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
   white-space: nowrap;
 }
 
-.badge-get    { background: rgba(34, 197, 94, 0.15);  color: #22c55e; }
-.badge-post   { background: rgba(14, 165, 233, 0.15); color: #0ea5e9; }
-.badge-put    { background: rgba(234, 179, 8, 0.15);  color: #ca8a04; }
-.badge-delete { background: rgba(239, 68, 68, 0.15);  color: #ef4444; }
+.ecom-auth-badge--admin {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+}
 
-/* URL bar */
+.ecom-auth-badge--user {
+  color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.12);
+}
+
 .ecom-url-bar {
   display: flex;
   align-items: center;
@@ -1570,36 +1536,89 @@ footer {
   min-height: 3.4rem;
 }
 
-[data-theme="light"] .ecom-url-bar {
-  background: rgba(0, 0, 0, 0.05);
-}
-
 .ecom-url-path {
-  font-family: var(--font-mono, monospace);
   font-size: 1.2rem;
   color: var(--text-secondary);
   word-break: break-all;
 }
 
-/* Input grid */
-.ecom-field {
+.api-demo-header {
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  min-width: 14rem;
-  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
 }
 
-#ecom-inputs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+.copy-btn {
+  display: none;
 }
 
-.ecom-native-select {
-  appearance: none;
+.copy-btn.visible {
+  display: inline-flex;
 }
 
-#ecommerce-demo.open {
-  max-height: 80rem;
+/* ==========================================================================
+   20. RESPONSİV KODLAR (Media Queries)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .container {
+    width: 92%;
+    height: auto;
+  }
+
+  .photo-info {
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  .info {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 505px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skill-accordion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-contact {
+    gap: 1.2rem;
+    position: relative;
+    z-index: 20;
+  }
+
+  .cv {
+    padding: 1.6rem 4rem;
+  }
+
+  .project-name {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .link-badge {
+    font-size: 1.05rem;
+    margin-left: 0.4rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .info-name {
+    font-size: 3.6rem;
+  }
+
+  .cv {
+    padding: 1.4rem 3rem;
+  }
+
+  .portfolio-skills {
+    width: 94%;
+    gap: 0.4rem;
+    padding: 0.6rem;
+  }
 }

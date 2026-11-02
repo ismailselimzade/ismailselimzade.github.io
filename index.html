@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>İsmayıl Səlimzadə | .NET Developer</title>
 
-  <!-- Styles -->
+  <!-- Stil faylları və ikonlar -->
   <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
@@ -15,7 +15,9 @@
 <body>
   <main class="container">
 
-    <!-- ========== TOP BAR: language switcher + theme toggle ========== -->
+    <!-- ==========================================================================
+       1. YUXARI MENYU (Dil seçimi və Tema keçidi)
+       ========================================================================== -->
     <section class="topbar">
       <div class="lang-wrapper">
         <button class="lang-icon" aria-label="Change language">
@@ -38,7 +40,9 @@
       </button>
     </section>
 
-    <!-- ========== HEADER: name, job title, social links ========== -->
+    <!-- ==========================================================================
+       2. MƏLUMAT HİSSƏSİ (Ad, ixtisas və sosial keçidlər)
+       ========================================================================== -->
     <section class="photo-info">
       <div class="info">
         <div class="info-name">İsmayıl Səlimzadə</div>
@@ -59,7 +63,9 @@
       </div>
     </section>
 
-    <!-- ========== CV DOWNLOAD (opens a language dropdown) ========== -->
+    <!-- ==========================================================================
+       3. CV YÜKLƏMƏ MENYUSU (Müxtəlif dillərdə PDF)
+       ========================================================================== -->
     <section class="cv-contact">
       <div class="cv-wrapper">
         <button class="cv" aria-label="Download CV">
@@ -73,7 +79,9 @@
       </div>
     </section>
 
-    <!-- ========== TABS: projects / skills / certificates ========== -->
+    <!-- ==========================================================================
+       4. NAVİQASİYA TABLARI (Projects / Skills / Certificates)
+       ========================================================================== -->
     <section class="portfolio-skills">
       <button class="portfolio active">
         <i class="fa-solid fa-briefcase"></i> <span data-i18n="tabProjects">projects</span>
@@ -86,10 +94,12 @@
       </button>
     </section>
 
-    <!-- ========== PANEL 1: PROJECTS ========== -->
+    <!-- ==========================================================================
+       5. PANEL 1: LAYİHƏLƏR (Backend & Frontend Akkorionları)
+       ========================================================================== -->
     <section class="projects">
 
-      <!-- Backend projects (repo link only) -->
+      <!-- Backend Layihələri -->
       <div class="accordion-item">
         <button class="backend">
           <span data-i18n="backendProjects"><i class="fa-solid fa-server toggle-icon"></i>Backend Projects</span>
@@ -97,6 +107,8 @@
         </button>
         <div class="backend-projects">
           <ul class="project-list">
+
+            <!-- Weather API Demo -->
             <li class="project-item-with-demo">
               <i class="fa-solid fa-cloud-sun"></i>
               <span class="project-name">Weather API Wrapper Service</span>
@@ -109,16 +121,26 @@
                 <div class="api-endpoint">
                   <span class="api-method get">GET</span>
                   <span class="api-path">/weather/{city}</span>
-                  <span class="api-desc">Returns current weather data for a city</span>
+                  <span class="api-desc" data-i18n="weatherTitle">Returns current weather data for a city</span>
                 </div>
                 <div class="api-inputs">
-                  <label class="api-label">city</label>
-                  <input class="api-input" type="text" placeholder="e.g. London" id="weather-city-input" />
-                  <button class="api-send-btn" data-api="weather">Send <i class="fa-solid fa-paper-plane"></i></button>
+                  <label class="api-label" data-i18n="weatherCityLabel">city</label>
+                  <div class="api-input-row">
+                    <input class="api-input" type="text" placeholder="e.g. London" data-i18n-placeholder="weatherCityPlaceholder" id="weather-city-input" />
+                    <button class="api-send-btn" data-api="weather"><span data-i18n="weatherSend">Send</span> <i class="fa-solid fa-paper-plane"></i></button>
+                  </div>
+                </div>
+                <div class="api-demo-header">
+                  <span class="api-label" data-i18n="responseLabel">Response</span>
+                  <button class="link-badge copy-btn" data-clipboard="weather-response">
+                    <i class="fa-solid fa-copy"></i> <span data-i18n="copyBtn">copy</span>
+                  </button>
                 </div>
                 <pre class="api-response api-response--idle" id="weather-response"></pre>
               </div>
             </li>
+
+            <!-- Simple E-Commerce API Demo -->
             <li class="project-item-with-demo">
               <i class="fa-solid fa-cart-shopping"></i>
               <span class="project-name">Simple E-Commerce API</span>
@@ -128,7 +150,6 @@
                 <i class="fa-solid fa-play"></i> try it
               </button>
               <div class="api-demo" id="ecommerce-demo">
-
                 <div class="ecom-token-bar" id="ecom-token-bar">
                   <i class="fa-solid fa-circle-xmark"></i> not logged in
                 </div>
@@ -145,16 +166,20 @@
                 </div>
 
                 <div class="ecom-url-bar" id="ecom-url-bar"></div>
+                <div class="api-desc" id="ecom-ep-desc" style="display: none; margin-top: 0.5rem;"></div>
 
                 <div class="api-inputs" id="ecom-inputs"></div>
-
-                <button class="api-send-btn" id="ecom-send-btn">
-                  Send <i class="fa-solid fa-paper-plane"></i>
-                </button>
-
+                <div class="api-demo-header">
+                  <span class="api-label">Response</span>
+                  <button class="link-badge copy-btn" data-clipboard="ecom-response">
+                    <i class="fa-solid fa-copy"></i> copy
+                  </button>
+                </div>
                 <pre class="api-response api-response--idle" id="ecom-response"></pre>
               </div>
             </li>
+
+            <!-- Digər Backend repositoriyaları -->
             <li>
               <i class="fa-solid fa-wallet"></i>
               <span class="project-name">Expense Tracker API</span>
@@ -195,7 +220,7 @@
         </div>
       </div>
 
-      <!-- Frontend projects (repo link + live site link) -->
+      <!-- Frontend Layihələri -->
       <div class="accordion-item">
         <button class="frontend">
           <span data-i18n="frontendProjects"><i class="fa-solid fa-display toggle-icon"></i>Frontend Projects</span>
@@ -248,11 +273,13 @@
       </div>
     </section>
 
-    <!-- ========== PANEL 2: SKILLS ========== -->
+    <!-- ==========================================================================
+       6. PANEL 2: BACARIQLAR (Skills Grid)
+       ========================================================================== -->
     <section class="my-skills">
       <div class="my-skills-content skill-accordion-grid">
 
-        <!-- Languages -->
+        <!-- Dillər -->
         <div class="accordion-item">
           <button class="skill-toggle">
             <span data-i18n="skillLanguages"><i class="fa-solid fa-code toggle-icon"></i>Languages</span>
@@ -286,7 +313,7 @@
           </div>
         </div>
 
-        <!-- Database -->
+        <!-- Verilənlər Bazası -->
         <div class="accordion-item">
           <button class="skill-toggle">
             <span data-i18n="skillDatabase"><i class="fa-solid fa-database toggle-icon"></i>Database</span>
@@ -299,7 +326,7 @@
           </div>
         </div>
 
-        <!-- Tools -->
+        <!-- Alətlər -->
         <div class="accordion-item">
           <button class="skill-toggle">
             <span data-i18n="skillTools"><i class="fa-solid fa-wrench toggle-icon"></i>Tools</span>
@@ -314,7 +341,7 @@
           </div>
         </div>
 
-        <!-- Fundamentals -->
+        <!-- Əsaslar (Fundamentals) -->
         <div class="accordion-item">
           <button class="skill-toggle">
             <span data-i18n="skillFundamentals"><i
@@ -334,10 +361,12 @@
       </div>
     </section>
 
-    <!-- ========== PANEL 3: CERTIFICATES ========== -->
+    <!-- ==========================================================================
+       7. PANEL 3: SERTİFİKATLAR (Certificates Grid)
+       ========================================================================== -->
     <section class="certificates">
 
-      <!-- C++ -->
+      <!-- C++ Sertifikatı -->
       <div class="accordion-item">
         <button class="cert-toggle">
           <span><img src="img/devicon/cplusplus.svg" alt="" class="cert-toggle-icon" /> C++</span>
@@ -357,7 +386,7 @@
         </div>
       </div>
 
-      <!-- C# -->
+      <!-- C# Sertifikatları -->
       <div class="accordion-item">
         <button class="cert-toggle">
           <span><img src="img/devicon/csharp.svg" alt="" class="cert-toggle-icon" /> C#</span>
@@ -365,8 +394,6 @@
         </button>
         <div class="cert-panel">
           <div class="cert-grid">
-
-            <!-- HackerRank -->
             <div class="cert-card" data-full="certificates/png/hackerrank_csharp.png">
               <img src="certificates/png/hackerrank_csharp.png" alt="C# Certificate" />
               <div class="cert-info">
@@ -381,7 +408,6 @@
               </div>
             </div>
 
-            <!-- with Microsoft -->
             <div class="cert-card" data-full="certificates/png/freecodecamp_microsoft_csharp.png">
               <img src="certificates/png/freecodecamp_microsoft_csharp.png" alt="C# Certificate" />
               <div class="cert-info">
@@ -395,12 +421,11 @@
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
 
-      <!-- Problem Solving -->
+      <!-- Problem Solving Sertifikatı -->
       <div class="accordion-item">
         <button class="cert-toggle">
           <span><i class="fa-solid fa-puzzle-piece cert-toggle-icon"></i> Problem Solving</span>
@@ -425,7 +450,7 @@
         </div>
       </div>
 
-      <!-- SQL -->
+      <!-- SQL Sertifikatı -->
       <div class="accordion-item">
         <button class="cert-toggle">
           <span><i class="fa-solid fa-database cert-toggle-icon"></i> SQL</span>
@@ -452,21 +477,26 @@
 
     </section>
 
-    <!-- ========== CERTIFICATE LIGHTBOX (fullscreen preview) ========== -->
+    <!-- ==========================================================================
+       8. MODAL / LIGHTBOX (Sertifikat şəklinin tam ekranda görünüşü)
+       ========================================================================== -->
     <div class="cert-lightbox">
       <span class="cert-lightbox-close">&times;</span>
       <img class="cert-lightbox-img" src="" alt="Certificate" />
     </div>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- ==========================================================================
+       9. FOOTER HİSSƏSİ
+       ========================================================================== -->
     <footer>
-      <span class="no-wrap">© Ismayil Selimzade 2026`</span>
+      <span class="no-wrap">© İsmayıl Səlimzadə 2026</span>
       <span class="no-wrap" data-i18n="footerRights">All rights reserved.</span>
     </footer>
 
   </main>
 
-  <script src="js/script.js"></script>
+  <!-- Əsas JavaScript skripti -->
+  <script src="js/script.js" defer></script>
 </body>
 
 </html>

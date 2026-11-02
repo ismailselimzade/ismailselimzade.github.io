@@ -1,7 +1,7 @@
 "use strict";
 
 /* ==========================================================================
-   1. I18N (translations)
+   1. ÇOXDİLLİLİK (İ18N) VƏ TƏRCÜMƏLƏR
    ========================================================================== */
 
 const translations = {
@@ -17,6 +17,67 @@ const translations = {
     skillTools: "Alətlər",
     skillFundamentals: "Əsaslar",
     footerRights: "Bütün hüquqlar qorunur.",
+    // Weather API endpoint açıqlamaları (AZ)
+    weatherTitle: "Şəhər üçün cari hava məlumatını qaytarır",
+    weatherCityLabel: "şəhər",
+    weatherCityPlaceholder: "məs. London",
+    weatherSend: "Göndər",
+    responseLabel: "Cavab",
+    copyBtn: "kopyala",
+    copyDone: "kopyalandı",
+    weatherError_empty: "// zəhmət olmasa şəhər adı daxil edin",
+    weatherError_fail: "// API ilə əlaqə qurmaq mümkün olmadı",
+    ecomLoading: "sorğu göndərilir...",
+    ecomError_connect: "// serverə qoşulmaq mümkün olmadı",
+    ecomLoggedIn: "sistemə daxil olunub",
+    ecomNotLoggedIn: "daxil olunmayıb",
+    // E-commerce endpoint açıqlamaları (AZ)
+    ecom_register: "Yeni istifadəçi qeydiyyatdan keçirir",
+    ecom_login: "Sistemə daxil olub JWT token əldə edir",
+    ecom_refresh: "Mövcud tokeni yeniləyir",
+    ecom_logout: "Sistemdən çıxış edir",
+    ecom_getCategories: "Bütün kateqoriyaların siyahısını qaytarır",
+    ecom_getCategoryById: "ID-yə əsasən kateqoriya məlumatını gətirir",
+    ecom_createCategory: "Yeni kateqoriya yaradır (Admin)",
+    ecom_updateCategory: "Kateqoriyanı yeniləyir (Admin)",
+    ecom_deleteCategory: "Kateqoriyanı silir (Admin)",
+    ecom_getProducts: "Məhsulların siyahısını filtrləmə ilə qaytarır",
+    ecom_getProductById: "ID-yə əsasən məhsul məlumatını gətirir",
+    ecom_createProduct: "Yeni məhsul əlavə edir (Admin)",
+    ecom_updateProduct: "Məhsul məlumatlarını yeniləyir (Admin)",
+    ecom_updateStock: "Məhsul stokunu yeniləyir (Admin)",
+    ecom_deleteProduct: "Məhsulu silir (Admin)",
+    ecom_getCart: "İstifadəçinin səbətini gətirir",
+    ecom_addCartItem: "Səbətə məhsul əlavə edir",
+    ecom_updateCartItem: "Səbətdəki məhsul sayını yeniləyir",
+    ecom_deleteCartItem: "Səbətdən məhsulu silir",
+    ecom_deleteCart: "Səbəti tamamilə təmizləyir",
+    ecom_getOrders: "İstifadəçinin sifarişlərini qaytarır",
+    ecom_getOrderById: "ID-yə əsasən sifariş detallarını gətirir",
+    ecom_createOrder: "Səbətdəki məhsullardan yeni sifariş yaradır",
+    ecom_updateOrderStatus: "Sifariş statusunu dəyişdirir (Admin)",
+    // ecomField placeholder-ləri (AZ)
+    ph_UserName: "istifadəçi adı",
+    ph_Email: "john@example.com",
+    ph_Password: "şifrə",
+    ph_Token: "refresh token",
+    ph_id: "ID",
+    ph_Name: "ad",
+    ph_Page: "1",
+    ph_PageSize: "20",
+    ph_SearchTerm: "axtarış",
+    ph_Description: "açıqlama",
+    ph_Price: "qiymət",
+    ph_Stock: "stok",
+    ph_ImageUrl: "şəkil linki",
+    ph_CategoryId: "kateqoriya ID",
+    ph_ProductId: "məhsul ID",
+    ph_Quantity: "say",
+    ph_cartItemId: "səbət element ID",
+    ph_NewStock: "yeni stok",
+    ph_cartId: "səbət ID",
+    ph_orderId: "sifariş ID",
+    ph_CartId: "səbət ID",
   },
   tr: {
     tabProjects: "projeler",
@@ -30,6 +91,65 @@ const translations = {
     skillTools: "Araçlar",
     skillFundamentals: "Temeller",
     footerRights: "Tüm hakları saklıdır.",
+    weatherTitle: "Şehir için güncel hava durumu verilerini döndürür",
+    weatherCityLabel: "şehir",
+    weatherCityPlaceholder: "örn. Londra",
+    weatherSend: "Gönder",
+    responseLabel: "Yanıt",
+    copyBtn: "kopyala",
+    copyDone: "kopyalandı",
+    weatherError_empty: "// lütfen bir şehir adı girin",
+    weatherError_fail: "// API ile bağlantı kurulamadı",
+    ecomLoading: "istek gönderiliyor...",
+    ecomError_connect: "// sunucuya bağlanılamadı",
+    ecomLoggedIn: "oturum açıldı",
+    ecomNotLoggedIn: "oturum açılmadı",
+    ecom_register: "Yeni kullanıcı kaydı oluşturur",
+    ecom_login: "Sisteme giriş yaparak JWT token alır",
+    ecom_refresh: "Mevcut tokeni yeniler",
+    ecom_logout: "Sistemden çıkış yapar",
+    ecom_getCategories: "Tüm kategorilerin listesini döndürür",
+    ecom_getCategoryById: "ID'ye göre kategori detayını getirir",
+    ecom_createCategory: "Yeni kategori oluşturur (Admin)",
+    ecom_updateCategory: "Kategoriyi günceller (Admin)",
+    ecom_deleteCategory: "Kategoriyi siler (Admin)",
+    ecom_getProducts: "Ürünlerin listesini filtreleme ile döndürür",
+    ecom_getProductById: "ID'ye göre ürün detayını getirir",
+    ecom_createProduct: "Yeni ürün ekler (Admin)",
+    ecom_updateProduct: "Ürün bilgilerini günceller (Admin)",
+    ecom_updateStock: "Ürün stok miktarını günceller (Admin)",
+    ecom_deleteProduct: "Ürünü siler (Admin)",
+    ecom_getCart: "Kullanıcının sepetini getirir",
+    ecom_addCartItem: "Sepete ürün ekler",
+    ecom_updateCartItem: "Sepetteki ürün miktarını günceller",
+    ecom_deleteCartItem: "Sepetten ürünü siler",
+    ecom_deleteCart: "Sepeti tamamen temizler",
+    ecom_getOrders: "Kullanıcının siparişlerini döndürür",
+    ecom_getOrderById: "ID'ye göre sipariş detayını getirir",
+    ecom_createOrder: "Sepetteki ürünlerle yeni sipariş oluşturur",
+    ecom_updateOrderStatus: "Sipariş durumunu günceller (Admin)",
+    // ecomField placeholder-ləri (TR)
+    ph_UserName: "kullanıcı adı",
+    ph_Email: "john@example.com",
+    ph_Password: "şifre",
+    ph_Token: "refresh token",
+    ph_id: "ID",
+    ph_Name: "ad",
+    ph_Page: "1",
+    ph_PageSize: "20",
+    ph_SearchTerm: "arama",
+    ph_Description: "açıklama",
+    ph_Price: "fiyat",
+    ph_Stock: "stok",
+    ph_ImageUrl: "resim linki",
+    ph_CategoryId: "kategori ID",
+    ph_ProductId: "ürün ID",
+    ph_Quantity: "adet",
+    ph_cartItemId: "sepet öğe ID",
+    ph_NewStock: "yeni stok",
+    ph_cartId: "sepet ID",
+    ph_orderId: "sipariş ID",
+    ph_CartId: "sepet ID",
   },
   en: {
     tabProjects: "projects",
@@ -43,8 +163,71 @@ const translations = {
     skillTools: "Tools",
     skillFundamentals: "Fundamentals",
     footerRights: "All rights reserved.",
+    weatherTitle: "Returns current weather data for a city",
+    weatherCityLabel: "city",
+    weatherCityPlaceholder: "e.g. London",
+    weatherSend: "Send",
+    responseLabel: "Response",
+    copyBtn: "copy",
+    copyDone: "copied",
+    weatherError_empty: "// please enter a city name",
+    weatherError_fail: "// could not connect to the API",
+    ecomLoading: "sending request...",
+    ecomError_connect: "// could not connect to the server",
+    ecomLoggedIn: "logged in",
+    ecomNotLoggedIn: "not logged in",
+    ecom_register: "Registers a new user",
+    ecom_login: "Logs in and returns a JWT token",
+    ecom_refresh: "Refreshes the current token",
+    ecom_logout: "Logs out from the system",
+    ecom_getCategories: "Returns a list of all categories",
+    ecom_getCategoryById: "Returns category details by ID",
+    ecom_createCategory: "Creates a new category (Admin)",
+    ecom_updateCategory: "Updates a category (Admin)",
+    ecom_deleteCategory: "Deletes a category (Admin)",
+    ecom_getProducts: "Returns a filtered list of products",
+    ecom_getProductById: "Returns product details by ID",
+    ecom_createProduct: "Creates a new product (Admin)",
+    ecom_updateProduct: "Updates product details (Admin)",
+    ecom_updateStock: "Updates product stock (Admin)",
+    ecom_deleteProduct: "Deletes a product (Admin)",
+    ecom_getCart: "Returns the user's shopping cart",
+    ecom_addCartItem: "Adds an item to the cart",
+    ecom_updateCartItem: "Updates cart item quantity",
+    ecom_deleteCartItem: "Removes an item from the cart",
+    ecom_deleteCart: "Clears the shopping cart",
+    ecom_getOrders: "Returns the user's orders",
+    ecom_getOrderById: "Returns order details by ID",
+    ecom_createOrder: "Creates a new order from the cart",
+    ecom_updateOrderStatus: "Updates order status (Admin)",
+    // ecomField placeholders (EN)
+    ph_UserName: "username",
+    ph_Email: "john@example.com",
+    ph_Password: "password",
+    ph_Token: "refresh token",
+    ph_id: "ID",
+    ph_Name: "name",
+    ph_Page: "1",
+    ph_PageSize: "20",
+    ph_SearchTerm: "search",
+    ph_Description: "description",
+    ph_Price: "price",
+    ph_Stock: "stock",
+    ph_ImageUrl: "image URL",
+    ph_CategoryId: "category ID",
+    ph_ProductId: "product ID",
+    ph_Quantity: "quantity",
+    ph_cartItemId: "cart item ID",
+    ph_NewStock: "new stock",
+    ph_cartId: "cart ID",
+    ph_orderId: "order ID",
+    ph_CartId: "cart ID",
   },
 };
+
+let ecomAccessToken = null;
+let ecomRefreshToken = null;
+let ecomActiveKey = null;
 
 const langIcon = document.querySelector(".lang-icon");
 const langMenu = document.querySelector(".lang-menu");
@@ -57,60 +240,96 @@ const langFlagUrls = {
   tr: "img/flags/tr.svg",
 };
 
+// Səhifənin dilini tənzimləyən əsas funksiya
 const setLanguage = (lang) => {
   const dict = translations[lang];
   if (!dict) return;
 
   i18nEls.forEach((el) => {
+    // 1. data-i18n atributu olan elementlərin mətnini yeniləyirik
     const key = el.getAttribute("data-i18n");
-    if (!dict[key]) return;
-    const icon = el.querySelector(".toggle-icon");
-    if (icon) {
-      el.textContent = dict[key];
-      el.prepend(icon);
-    } else {
-      el.textContent = dict[key];
+    if (key && dict[key]) {
+      const icon = el.querySelector(".toggle-icon");
+      if (icon) {
+        el.textContent = dict[key];
+        el.prepend(icon);
+      } else {
+        el.textContent = dict[key];
+      }
+    }
+
+    // 2. data-i18n-placeholder atributu olan input-ların placeholder-ini yeniləyirik
+    const placeholderKey = el.getAttribute("data-i18n-placeholder");
+    if (placeholderKey && dict[placeholderKey]) {
+      el.placeholder = dict[placeholderKey];
     }
   });
 
+  // 3. Əgər E-commerce paneli aktivdirsə, seçilmiş endpoint-in açıqlamasını da cari dilə uyğun yeniləyirik
+  if (typeof ecomActiveKey !== "undefined" && ecomActiveKey) {
+    const descEl = document.getElementById("ecom-ep-desc");
+    if (descEl && dict[`ecom_${ecomActiveKey}`]) {
+      descEl.textContent = dict[`ecom_${ecomActiveKey}`];
+    }
+  }
+
+  // 4. Token bar mətnini yeniləyirik (yalnız "not logged in" vəziyyətindədirsə)
+  const tokenBar = document.getElementById("ecom-token-bar");
+  if (tokenBar && !tokenBar.classList.contains("logged-in")) {
+    tokenBar.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> ${dict.ecomNotLoggedIn}`;
+  }
+
+  // 4b. Aktiv endpoint varsa inputları yeni dilə uyğun yenidən render edirik
+  if (ecomActiveKey && typeof ecomEndpoints !== "undefined" && ecomInputsEl) {
+    const ep = ecomEndpoints[ecomActiveKey];
+    if (ep) {
+      ecomInputsEl.innerHTML = ep.inputs().join("");
+      ecomInputsEl.style.display = "flex";
+    }
+    const descEl = document.getElementById("ecom-ep-desc");
+    if (descEl && dict[`ecom_${ecomActiveKey}`]) {
+      descEl.textContent = dict[`ecom_${ecomActiveKey}`];
+    }
+  }
+
+  // 5. Yuxarı menyudakı dil ikonunu/bayrağını tənzimləyirik
   if (lang === "en") {
     langIcon.innerHTML = '<span class="lang-flag-text">EN</span>';
   } else {
     langIcon.innerHTML = `<img class="lang-flag" src="${langFlagUrls[lang]}" alt="${lang.toUpperCase()}" />`;
   }
 
+  // HTML lang atributunu yeniləyirik və açılan menyunu bağlayırıq
   document.documentElement.setAttribute("lang", lang);
   langMenu.classList.remove("open");
   container.classList.remove("blur-bg-lang");
 };
 
+// Dil menyusunu açma/bağlama hadisəsi
 langIcon.addEventListener("click", () => {
   langMenu.classList.toggle("open");
   container.classList.toggle("blur-bg-lang", langMenu.classList.contains("open"));
 });
 
+// Seçilən dilə əsasən setLanguage funksiyasını çağırırıq
 langOptions.forEach((btn) => {
   btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
 });
 
-setLanguage("en");
-
 /* ==========================================================================
-   2. THEME TOGGLE (light/dark)
+   2. Tema Dəyişdirici (Light / Dark Mode)
    ========================================================================== */
 
 const themeButton = document.querySelector(".theme-icon");
 
-const changeTheme = () => {
+themeButton.addEventListener("click", () => {
   const html = document.documentElement;
   const isDark = html.getAttribute("data-theme") === "dark";
   html.setAttribute("data-theme", isDark ? "light" : "dark");
-};
-
-themeButton.addEventListener("click", changeTheme);
+});
 
 /* ==========================================================================
-   3. TAB SWITCHING (projects / skills / certificates)
+   3. TAB KEÇİDLƏRİ (Proyektlər, Bacarıqlar, Sertifikatlar)
    ========================================================================== */
 
 const skills = document.querySelector(".skills");
@@ -127,9 +346,9 @@ const openPanel = (activeTab, activePanel) => {
   allPanels.forEach((panel) => {
     if (panel === activePanel) {
       panel.style.display = "block";
-      panel.classList.remove("panel-animate"); // əvvəlki animasiyanı sıfırla
-      void panel.offsetWidth; // brauzeri məcburi reflow-a saldıq
-      panel.classList.add("panel-animate"); // animasiyanı yenidən başlat
+      panel.classList.remove("panel-animate");
+      void panel.offsetWidth;
+      panel.classList.add("panel-animate");
     } else {
       panel.style.display = "none";
       panel.classList.remove("panel-animate");
@@ -141,16 +360,12 @@ const openPanel = (activeTab, activePanel) => {
   });
 };
 
-const openSkills = () => openPanel(skills, mySkills);
-const openProjects = () => openPanel(portfolio, projects);
-const openCertificates = () => openPanel(certificatesTab, certificates);
-
-skills.addEventListener("click", openSkills);
-portfolio.addEventListener("click", openProjects);
-certificatesTab.addEventListener("click", openCertificates);
+skills.addEventListener("click", () => openPanel(skills, mySkills));
+portfolio.addEventListener("click", () => openPanel(portfolio, projects));
+certificatesTab.addEventListener("click", () => openPanel(certificatesTab, certificates));
 
 /* ==========================================================================
-   4. CV LANGUAGE DROPDOWN
+   4. CV DİL MENYUSU VƏ ÜMUMİ BAĞLANMA QAYDALARI
    ========================================================================== */
 
 const cvBtn = document.querySelector(".cv");
@@ -172,7 +387,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Escape düyməsi ilə menyuları bağla
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
   langMenu.classList.remove("open");
@@ -181,31 +395,24 @@ document.addEventListener("keydown", (e) => {
 });
 
 /* ==========================================================================
-   5. BACKEND / FRONTEND PROJECT ACCORDIONS
+   5. AKKORDEONLAR (Backend/Frontend, Bacarıqlar və Sertifikatlar)
    ========================================================================== */
 
-const backendBtn = document.querySelector(".backend");
-const frontendBtn = document.querySelector(".frontend");
-const backendProjects = document.querySelector(".backend-projects");
-const frontendProjects = document.querySelector(".frontend-projects");
+const setupAccordion = (btnSelector, panelSelector) => {
+  const btn = document.querySelector(btnSelector);
+  const panel = document.querySelector(panelSelector);
+  if (!btn || !panel) return;
 
-backendBtn.addEventListener("click", () => {
-  backendProjects.classList.toggle("open");
-  backendBtn.classList.toggle("active");
-});
+  btn.addEventListener("click", () => {
+    panel.classList.toggle("open");
+    btn.classList.toggle("active");
+  });
+};
 
-frontendBtn.addEventListener("click", () => {
-  frontendProjects.classList.toggle("open");
-  frontendBtn.classList.toggle("active");
-});
+setupAccordion(".backend", ".backend-projects");
+setupAccordion(".frontend", ".frontend-projects");
 
-/* ==========================================================================
-   6. SKILLS ACCORDION
-   ========================================================================== */
-
-const skillToggles = document.querySelectorAll(".skill-toggle");
-
-skillToggles.forEach((btn) => {
+document.querySelectorAll(".skill-toggle, .cert-toggle").forEach((btn) => {
   const panel = btn.nextElementSibling;
   btn.addEventListener("click", () => {
     panel.classList.toggle("open");
@@ -214,21 +421,7 @@ skillToggles.forEach((btn) => {
 });
 
 /* ==========================================================================
-   7. CERTIFICATES ACCORDION
-   ========================================================================== */
-
-const certToggles = document.querySelectorAll(".cert-toggle");
-
-certToggles.forEach((btn) => {
-  const panel = btn.nextElementSibling;
-  btn.addEventListener("click", () => {
-    panel.classList.toggle("open");
-    btn.classList.toggle("active");
-  });
-});
-
-/* ==========================================================================
-   8. CERTIFICATE LIGHTBOX
+   6. SERTİFİKAT (Şəklin böyük formatda açılması)
    ========================================================================== */
 
 const certCards = document.querySelectorAll(".cert-card");
@@ -249,46 +442,28 @@ const closeCertLightbox = () => {
 };
 
 certLightboxClose.addEventListener("click", closeCertLightbox);
-
-certLightbox.addEventListener("click", (e) => {
-  if (e.target === certLightbox) closeCertLightbox();
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeCertLightbox();
-});
+certLightbox.addEventListener("click", (e) => { if (e.target === certLightbox) closeCertLightbox(); });
 
 /* ==========================================================================
-   9. STICKY TOPBAR SCROLL BLUR
+   7. STICKY TOPBAR VƏ SCROLL EFFEKTLƏRİ
    ========================================================================== */
 
 const topbar = document.querySelector(".topbar");
-
 window.addEventListener("scroll", () => {
   topbar.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-/* ==========================================================================
-   10. SCROLL-TRIGGERED REVEAL (IntersectionObserver)
-   ========================================================================== */
+// Elementlərin ekrana gələndə üzə çıxması (IntersectionObserver)
+document.querySelectorAll(".my-skills, .certificates").forEach((el) => el.classList.add("reveal"));
 
-document.querySelectorAll(".my-skills, .certificates").forEach((el) => {
-  el.classList.add("reveal");
-});
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    });
-  },
-  { threshold: 0.15 }
-);
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add("visible"); });
+}, { threshold: 0.15 });
 
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
 /* ==========================================================================
-   11. CURSOR-FOLLOW GLOW (skill cards, cert cards, project accordions)
+   8. MOUSE İLƏ HƏRƏKƏT EDƏN İŞIQ (Glow) VƏ MAGNETIC CV DÜYMƏSİ
    ========================================================================== */
 
 document.querySelectorAll(
@@ -305,14 +480,8 @@ document.querySelectorAll(
     glow.style.opacity = "1";
   });
 
-  card.addEventListener("mouseleave", () => {
-    glow.style.opacity = "0";
-  });
+  card.addEventListener("mouseleave", () => { glow.style.opacity = "0"; });
 });
-
-/* ==========================================================================
-   12. MAGNETIC CV BUTTON
-   ========================================================================== */
 
 cvBtn.addEventListener("mousemove", (e) => {
   const rect = cvBtn.getBoundingClientRect();
@@ -321,98 +490,67 @@ cvBtn.addEventListener("mousemove", (e) => {
   cvBtn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
 });
 
-cvBtn.addEventListener("mouseleave", () => {
-  cvBtn.style.transform = "translate(0, 0)";
-});
+cvBtn.addEventListener("mouseleave", () => { cvBtn.style.transform = "translate(0, 0)"; });
 
 /* ==========================================================================
-   13. API DEMO PANELS — Weather API
+   9. API TEST PANELLƏRİ
    ========================================================================== */
 
 const WEATHER_BASE_URL = "https://weatherapiwrapperservice-ikj2.onrender.com";
+const ECOM_BASE_URL = "https://simpleecommerceapi.onrender.com";
 
 document.querySelectorAll(".try-it-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
-    const demoId = btn.dataset.demo;
-    const demo = document.getElementById(demoId);
-    demo.classList.toggle("open");
+    document.getElementById(btn.dataset.demo).classList.toggle("open");
   });
 });
 
+// Weather API Sorğusu
 document.querySelectorAll(".api-send-btn").forEach((btn) => {
   if (btn.dataset.api !== "weather") return;
   btn.addEventListener("click", async () => {
     const city = document.getElementById("weather-city-input").value.trim();
     const responseEl = document.getElementById("weather-response");
+    const copyBtn = document.querySelector('[data-clipboard="weather-response"]');
+
+    const currentLang = document.documentElement.getAttribute("lang") || "en";
+    const dict = translations[currentLang] || translations["en"];
 
     if (!city) {
-      responseEl.textContent = "// please enter a city name";
+      responseEl.textContent = dict.weatherError_empty;
       responseEl.className = "api-response error";
+      copyBtn?.classList.remove("visible");
       return;
     }
 
     btn.disabled = true;
-    responseEl.innerHTML = '<span class="api-spinner"></span> loading...';
+    responseEl.innerHTML = `<span class="api-spinner"></span> ${dict.ecomLoading}`;
     responseEl.className = "api-response";
+    copyBtn?.classList.remove("visible");
 
     try {
       const res = await fetch(`${WEATHER_BASE_URL}/weather/${encodeURIComponent(city)}`);
       const data = await res.json();
       responseEl.textContent = JSON.stringify(data, null, 2);
       responseEl.className = res.ok ? "api-response success" : "api-response error";
+      copyBtn?.classList.add("visible");
     } catch {
-      responseEl.textContent = "// could not reach the API";
+      responseEl.textContent = dict.weatherError_fail;
       responseEl.className = "api-response error";
+      copyBtn?.classList.add("visible");
     } finally {
       btn.disabled = false;
     }
   });
 });
 
-/* ==========================================================================
-   14. API DEMO PANELS — Simple E-Commerce API
-   ========================================================================== */
-
-const ECOM_BASE_URL = "https://simpleecommerceapi.onrender.com";
-
-let ecomAccessToken = null;
-let ecomRefreshToken = null;
-let ecomActiveKey = null;
-
-const ecomSendBtn = document.getElementById("ecom-send-btn");
-const ecomResponseEl = document.getElementById("ecom-response");
-const ecomTokenBar = document.getElementById("ecom-token-bar");
-const ecomInputsEl = document.getElementById("ecom-inputs");
-const ecomUrlBar = document.getElementById("ecom-url-bar");
-const ecomDropdownPanel = document.getElementById("ecom-dropdown-panel");
-const ecomEpList = document.getElementById("ecom-ep-list");
-
-function ecomSetTokenBar() {
-  if (ecomAccessToken) {
-    ecomTokenBar.innerHTML = '<i class="fa-solid fa-circle-check"></i> logged in';
-    ecomTokenBar.className = "ecom-token-bar logged-in";
-  } else {
-    ecomTokenBar.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> not logged in';
-    ecomTokenBar.className = "ecom-token-bar";
-  }
-}
-
-function ecomField(id, placeholder, type = "text") {
-  return `<div class="ecom-field">
-    <label class="api-label">${id}</label>
-    <input class="api-input" type="${type}" id="ecom-${id}" placeholder="${placeholder}" />
-  </div>`;
-}
-
-function ecomDropdown(id, options) {
-  const opts = options.map(o => `<option value="${o}">${o}</option>`).join("");
-  return `<div class="ecom-field">
-    <label class="api-label">${id}</label>
-    <select class="api-input ecom-native-select" id="ecom-${id}">${opts}</select>
-  </div>`;
-}
-
-const methodColors = { GET: "badge-get", POST: "badge-post", PUT: "badge-put", DELETE: "badge-delete" };
+// E-Commerce API Məntiqi
+let ecomSendBtn = document.getElementById("ecom-send-btn");
+let ecomResponseEl = document.getElementById("ecom-response");
+let ecomTokenBar = document.getElementById("ecom-token-bar");
+let ecomInputsEl = document.getElementById("ecom-inputs");
+let ecomUrlBar = document.getElementById("ecom-url-bar");
+let ecomEpList = document.getElementById("ecom-ep-list");
 
 const ecomGroups = {
   auth: [
@@ -451,31 +589,79 @@ const ecomGroups = {
   ],
 };
 
+const methodColors = { GET: "badge-get", POST: "badge-post", PUT: "badge-put", DELETE: "badge-delete" };
+
+const methodDescColors = {
+  GET:    { color: "rgba(34, 197, 94, 0.8)",  bg: "rgba(34, 197, 94, 0.07)" },
+  POST:   { color: "rgba(14, 165, 233, 0.8)", bg: "rgba(14, 165, 233, 0.07)" },
+  PUT:    { color: "rgba(202, 138, 4, 0.8)",  bg: "rgba(234, 179, 8, 0.07)" },
+  DELETE: { color: "rgba(239, 68, 68, 0.8)",  bg: "rgba(239, 68, 68, 0.07)" },
+};
+
+function setDescColor(el, method) {
+  const c = methodDescColors[method] || methodDescColors.POST;
+  el.style.setProperty("--api-desc-color", c.color);
+  el.style.setProperty("--api-desc-bg", c.bg);
+}
+
+function ecomField(id, phKey, type = "text") {
+  const lang = document.documentElement.getAttribute("lang") || "en";
+  const dict = translations[lang] || translations["en"];
+  const placeholder = dict[`ph_${phKey || id}`] || phKey || id;
+  return `
+    <div class="ecom-field">
+      <label class="api-label">${id}</label>
+      <input class="api-input" type="${type}" id="ecom-${id}" placeholder="${placeholder}" />
+    </div>
+  `;
+}
+
+function ecomDropdown(id, options) {
+  const opts = options.map(o => `<option value="${o}">${o}</option>`).join("");
+  return `
+    <div class="ecom-field">
+      <label class="api-label">${id}</label>
+      <select class="api-input ecom-native-select" id="ecom-${id}">
+        ${opts}
+      </select>
+    </div>
+  `;
+}
+
 const ecomEndpoints = {
-  register: { method: "POST", urlTemplate: "/api/auth/register", auth: false, inputs: () => [ecomField("UserName", "e.g. johndoe"), ecomField("Email", "john@example.com", "email"), ecomField("Password", "min 6 chars", "password")], path: () => "/api/auth/register", body: () => ({ UserName: v("UserName"), Email: v("Email"), Password: v("Password") }) },
-  login: { method: "POST", urlTemplate: "/api/auth/login", auth: false, inputs: () => [ecomField("UserName", "your username"), ecomField("Password", "your password", "password")], path: () => "/api/auth/login", body: () => ({ UserName: v("UserName"), Password: v("Password") }) },
-  refresh: { method: "POST", urlTemplate: "/api/auth/refresh", auth: false, inputs: () => [ecomField("Token", ecomRefreshToken || "refresh token")], path: () => "/api/auth/refresh", body: () => ({ Token: v("Token") || ecomRefreshToken || "" }) },
-  logout: { method: "POST", urlTemplate: "/api/auth/logout", auth: false, inputs: () => [ecomField("Token", ecomRefreshToken || "refresh token")], path: () => "/api/auth/logout", body: () => ({ Token: v("Token") || ecomRefreshToken || "" }) },
-  getCategories: { method: "GET", urlTemplate: "/api/categories", auth: false, inputs: () => [], path: () => "/api/categories", body: () => null },
-  getCategoryById: { method: "GET", urlTemplate: "/api/categories/{id}", auth: false, inputs: () => [ecomField("id", "category UUID")], path: () => `/api/categories/${v("id")}`, body: () => null },
-  createCategory: { method: "POST", urlTemplate: "/api/categories", auth: true, inputs: () => [ecomField("Name", "e.g. Electronics")], path: () => "/api/categories", body: () => ({ Name: v("Name") }) },
-  updateCategory: { method: "PUT", urlTemplate: "/api/categories/{id}", auth: true, inputs: () => [ecomField("id", "category UUID"), ecomField("Name", "new name")], path: () => `/api/categories/${v("id")}`, body: () => ({ Name: v("Name") }) },
-  deleteCategory: { method: "DELETE", urlTemplate: "/api/categories/{id}", auth: true, inputs: () => [ecomField("id", "category UUID")], path: () => `/api/categories/${v("id")}`, body: () => null },
-  getProducts: { method: "GET", urlTemplate: "/api/products?[filters]", auth: false, inputs: () => [ecomField("Page", "1"), ecomField("PageSize", "20 (max 100)"), ecomField("SearchTerm", "optional"), ecomField("MinPrice", "optional"), ecomField("MaxPrice", "optional"), ecomField("CategoryId", "optional UUID")], path: () => { const p = new URLSearchParams(); if (v("Page")) p.set("Page", v("Page")); if (v("PageSize")) p.set("PageSize", v("PageSize")); if (v("SearchTerm")) p.set("SearchTerm", v("SearchTerm")); if (v("MinPrice")) p.set("MinPrice", v("MinPrice")); if (v("MaxPrice")) p.set("MaxPrice", v("MaxPrice")); if (v("CategoryId")) p.set("CategoryId", v("CategoryId")); return `/api/products?${p.toString()}`; }, body: () => null },
-  getProductById: { method: "GET", urlTemplate: "/api/products/{id}", auth: false, inputs: () => [ecomField("id", "product UUID")], path: () => `/api/products/${v("id")}`, body: () => null },
-  createProduct: { method: "POST", urlTemplate: "/api/products", auth: true, inputs: () => [ecomField("Name", "product name"), ecomField("Description", "description"), ecomField("Price", "e.g. 29.99"), ecomField("Stock", "e.g. 100"), ecomField("ImageUrl", "https://..."), ecomField("CategoryId", "category UUID")], path: () => "/api/products", body: () => ({ Name: v("Name"), Description: v("Description"), Price: parseFloat(v("Price")), Stock: parseInt(v("Stock")), ImageUrl: v("ImageUrl"), CategoryId: v("CategoryId") }) },
-  updateProduct: { method: "PUT", urlTemplate: "/api/products/{id}", auth: true, inputs: () => [ecomField("id", "product UUID"), ecomField("Name", "product name"), ecomField("Description", "description"), ecomField("Price", "e.g. 29.99"), ecomField("Stock", "e.g. 100"), ecomField("ImageUrl", "https://..."), ecomField("CategoryId", "category UUID")], path: () => `/api/products/${v("id")}`, body: () => ({ Name: v("Name"), Description: v("Description"), Price: parseFloat(v("Price")), Stock: parseInt(v("Stock")), ImageUrl: v("ImageUrl"), CategoryId: v("CategoryId") }) },
-  updateStock: { method: "PUT", urlTemplate: "/api/products/{id}/stock", auth: true, inputs: () => [ecomField("id", "product UUID"), ecomField("NewStock", "e.g. 50")], path: () => `/api/products/${v("id")}/stock`, body: () => ({ NewStock: parseInt(v("NewStock")) }) },
-  deleteProduct: { method: "DELETE", urlTemplate: "/api/products/{id}", auth: true, inputs: () => [ecomField("id", "product UUID")], path: () => `/api/products/${v("id")}`, body: () => null },
-  getCart: { method: "GET", urlTemplate: "/api/carts", auth: true, inputs: () => [], path: () => "/api/carts", body: () => null },
-  addCartItem: { method: "POST", urlTemplate: "/api/carts", auth: true, inputs: () => [ecomField("ProductId", "product UUID"), ecomField("Quantity", "e.g. 2")], path: () => "/api/carts", body: () => ({ ProductId: v("ProductId"), Quantity: parseInt(v("Quantity")) }) },
-  updateCartItem: { method: "PUT", urlTemplate: "/api/carts/{cartItemId}", auth: true, inputs: () => [ecomField("cartItemId", "cart item UUID"), ecomField("Quantity", "new quantity")], path: () => `/api/carts/${v("cartItemId")}`, body: () => ({ Quantity: parseInt(v("Quantity")) }) },
-  deleteCartItem: { method: "DELETE", urlTemplate: "/api/carts/cartItems/{cartItemId}", auth: true, inputs: () => [ecomField("cartItemId", "cart item UUID")], path: () => `/api/carts/cartItems/${v("cartItemId")}`, body: () => null },
-  deleteCart: { method: "DELETE", urlTemplate: "/api/carts/carts/{cartId}", auth: true, inputs: () => [ecomField("cartId", "cart UUID")], path: () => `/api/carts/carts/${v("cartId")}`, body: () => null },
-  getOrders: { method: "GET", urlTemplate: "/api/orders", auth: true, inputs: () => [], path: () => "/api/orders", body: () => null },
-  getOrderById: { method: "GET", urlTemplate: "/api/orders/{id}", auth: true, inputs: () => [ecomField("orderId", "order UUID")], path: () => `/api/orders/${v("orderId")}`, body: () => null },
-  createOrder: { method: "POST", urlTemplate: "/api/orders", auth: true, inputs: () => [ecomField("CartId", "cart UUID"), ecomDropdown("PaymentMethod", ["CreditCard", "DebitCard", "Paypal"])], path: () => "/api/orders", body: () => ({ CartId: v("CartId"), PaymentMethod: ["CreditCard", "DebitCard", "Paypal"].indexOf(v("PaymentMethod")) }) },
-  updateOrderStatus: { method: "PUT", urlTemplate: "/api/orders/{orderId}/{status}", auth: true, inputs: () => [ecomField("orderId", "order UUID"), ecomDropdown("status", ["Pending", "Paid", "Shipped", "Cancelled"])], path: () => `/api/orders/${v("orderId")}/${v("status")}`, body: () => null },
+  // Auth
+  register: { method: "POST", urlTemplate: "/api/auth/register", auth: false, authLevel: null, inputs: () => [ecomField("UserName", "UserName"), ecomField("Email", "Email", "email"), ecomField("Password", "Password", "password")], path: () => "/api/auth/register", body: () => ({ UserName: v("UserName"), Email: v("Email"), Password: v("Password") }) },
+  login: { method: "POST", urlTemplate: "/api/auth/login", auth: false, authLevel: null, inputs: () => [ecomField("UserName", "UserName"), ecomField("Password", "Password", "password")], path: () => "/api/auth/login", body: () => ({ UserName: v("UserName"), Password: v("Password") }) },
+  refresh: { method: "POST", urlTemplate: "/api/auth/refresh", auth: false, authLevel: null, inputs: () => [ecomField("Token", "Token")], path: () => "/api/auth/refresh", body: () => ({ Token: v("Token") || ecomRefreshToken || "" }) },
+  logout: { method: "POST", urlTemplate: "/api/auth/logout", auth: false, authLevel: null, inputs: () => [ecomField("Token", "Token")], path: () => "/api/auth/logout", body: () => ({ Token: v("Token") || ecomRefreshToken || "" }) },
+
+  // Categories
+  getCategories: { method: "GET", urlTemplate: "/api/categories", auth: false, authLevel: null, inputs: () => [], path: () => "/api/categories", body: () => null },
+  getCategoryById: { method: "GET", urlTemplate: "/api/categories/{id}", auth: false, authLevel: null, inputs: () => [ecomField("id", "id")], path: () => `/api/categories/${v("id")}`, body: () => null },
+  createCategory: { method: "POST", urlTemplate: "/api/categories", auth: true, authLevel: "admin", inputs: () => [ecomField("Name", "Name")], path: () => "/api/categories", body: () => ({ Name: v("Name") }) },
+  updateCategory: { method: "PUT", urlTemplate: "/api/categories/{id}", auth: true, authLevel: "admin", inputs: () => [ecomField("id", "id"), ecomField("Name", "Name")], path: () => `/api/categories/${v("id")}`, body: () => ({ Name: v("Name") }) },
+  deleteCategory: { method: "DELETE", urlTemplate: "/api/categories/{id}", auth: true, authLevel: "admin", inputs: () => [ecomField("id", "id")], path: () => `/api/categories/${v("id")}`, body: () => null },
+
+  // Products
+  getProducts: { method: "GET", urlTemplate: "/api/products?[filters]", auth: false, authLevel: null, inputs: () => [ecomField("Page", "Page"), ecomField("PageSize", "PageSize"), ecomField("SearchTerm", "SearchTerm")], path: () => { const p = new URLSearchParams(); if (v("Page")) p.set("Page", v("Page")); if (v("PageSize")) p.set("PageSize", v("PageSize")); if (v("SearchTerm")) p.set("SearchTerm", v("SearchTerm")); return `/api/products?${p.toString()}`; }, body: () => null },
+  getProductById: { method: "GET", urlTemplate: "/api/products/{id}", auth: false, authLevel: null, inputs: () => [ecomField("id", "id")], path: () => `/api/products/${v("id")}`, body: () => null },
+  createProduct: { method: "POST", urlTemplate: "/api/products", auth: true, authLevel: "admin", inputs: () => [ecomField("Name", "Name"), ecomField("Description", "Description"), ecomField("Price", "Price"), ecomField("Stock", "Stock"), ecomField("ImageUrl", "ImageUrl"), ecomField("CategoryId", "CategoryId")], path: () => "/api/products", body: () => ({ Name: v("Name"), Description: v("Description"), Price: parseFloat(v("Price")), Stock: parseInt(v("Stock")), ImageUrl: v("ImageUrl"), CategoryId: v("CategoryId") }) },
+  updateProduct: { method: "PUT", urlTemplate: "/api/products/{id}", auth: true, authLevel: "admin", inputs: () => [ecomField("id", "id"), ecomField("Name", "Name"), ecomField("Description", "Description"), ecomField("Price", "Price"), ecomField("Stock", "Stock"), ecomField("ImageUrl", "ImageUrl"), ecomField("CategoryId", "CategoryId")], path: () => `/api/products/${v("id")}`, body: () => ({ Name: v("Name"), Description: v("Description"), Price: parseFloat(v("Price")), Stock: parseInt(v("Stock")), ImageUrl: v("ImageUrl"), CategoryId: v("CategoryId") }) },
+  updateStock: { method: "PUT", urlTemplate: "/api/products/{id}/stock", auth: true, authLevel: "admin", inputs: () => [ecomField("id", "id"), ecomField("NewStock", "NewStock")], path: () => `/api/products/${v("id")}/stock`, body: () => ({ NewStock: parseInt(v("NewStock")) }) },
+  deleteProduct: { method: "DELETE", urlTemplate: "/api/products/{id}", auth: true, authLevel: "admin", inputs: () => [ecomField("id", "id")], path: () => `/api/products/${v("id")}`, body: () => null },
+
+  // Cart
+  getCart: { method: "GET", urlTemplate: "/api/carts", auth: true, authLevel: "user", inputs: () => [], path: () => "/api/carts", body: () => null },
+  addCartItem: { method: "POST", urlTemplate: "/api/carts", auth: true, authLevel: "user", inputs: () => [ecomField("ProductId", "ProductId"), ecomField("Quantity", "Quantity")], path: () => "/api/carts", body: () => ({ ProductId: v("ProductId"), Quantity: parseInt(v("Quantity")) }) },
+  updateCartItem: { method: "PUT", urlTemplate: "/api/carts/{cartItemId}", auth: true, authLevel: "user", inputs: () => [ecomField("cartItemId", "cartItemId"), ecomField("Quantity", "Quantity")], path: () => `/api/carts/${v("cartItemId")}`, body: () => ({ Quantity: parseInt(v("Quantity")) }) },
+  deleteCartItem: { method: "DELETE", urlTemplate: "/api/carts/cartItems/{cartItemId}", auth: true, authLevel: "user", inputs: () => [ecomField("cartItemId", "cartItemId")], path: () => `/api/carts/cartItems/${v("cartItemId")}`, body: () => null },
+  deleteCart: { method: "DELETE", urlTemplate: "/api/carts/carts/{cartId}", auth: true, authLevel: "user", inputs: () => [ecomField("cartId", "cartId")], path: () => `/api/carts/carts/${v("cartId")}`, body: () => null },
+
+  // Orders
+  getOrders: { method: "GET", urlTemplate: "/api/orders", auth: true, authLevel: "user", inputs: () => [], path: () => "/api/orders", body: () => null },
+  getOrderById: { method: "GET", urlTemplate: "/api/orders/{id}", auth: true, authLevel: "user", inputs: () => [ecomField("orderId", "orderId")], path: () => `/api/orders/${v("orderId")}`, body: () => null },
+  createOrder: { method: "POST", urlTemplate: "/api/orders", auth: true, authLevel: "user", inputs: () => [ecomField("CartId", "CartId"), ecomDropdown("PaymentMethod", ["CreditCard", "DebitCard", "Paypal"])], path: () => "/api/orders", body: () => ({ CartId: v("CartId"), PaymentMethod: ["CreditCard", "DebitCard", "Paypal"].indexOf(v("PaymentMethod")) }) },
+  updateOrderStatus: { method: "PUT", urlTemplate: "/api/orders/{orderId}/{status}", auth: true, authLevel: "admin", inputs: () => [ecomField("orderId", "orderId"), ecomDropdown("status", ["Pending", "Paid", "Shipped", "Cancelled"])], path: () => `/api/orders/${v("orderId")}/${v("status")}`, body: () => null }
 };
 
 function v(id) {
@@ -483,16 +669,15 @@ function v(id) {
   return el ? el.value.trim() : "";
 }
 
-let ecomActiveGroup = null;
-
 function ecomRenderEpList(group) {
   const items = ecomGroups[group];
   ecomEpList.innerHTML = items.map(ep =>
     `<button class="ecom-ep-item" data-key="${ep.key}">
-      <span class="ecom-method-badge ${methodColors[ep.method]}">${ep.method}</span>
+      <span class="api-method ${ep.method.toLowerCase()}">${ep.method}</span>
       <span class="ecom-ep-label">${ep.label}</span>
     </button>`
   ).join("");
+  // ...
 
   ecomEpList.querySelectorAll(".ecom-ep-item").forEach(item => {
     item.addEventListener("click", () => {
@@ -508,16 +693,19 @@ document.querySelectorAll(".ecom-group-btn").forEach(btn => {
     document.querySelectorAll(".ecom-group-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     ecomRenderEpList(btn.dataset.group);
-    // endpoint seçimini sıfırla
+
+    const descEl = document.getElementById("ecom-ep-desc");
+    if (descEl) descEl.style.display = "none";
     ecomActiveKey = null;
     ecomUrlBar.innerHTML = "";
     ecomInputsEl.innerHTML = "";
+    ecomUrlBar.style.display = "none";
+    ecomInputsEl.style.display = "none";
     ecomResponseEl.textContent = "";
     ecomResponseEl.className = "api-response api-response--idle";
   });
 });
 
-// ilkin render
 ecomRenderEpList("auth");
 
 function ecomSelectEndpoint(key) {
@@ -526,72 +714,111 @@ function ecomSelectEndpoint(key) {
   if (!ep) return;
 
   ecomUrlBar.innerHTML = `
-    <span class="ecom-method-badge ${methodColors[ep.method]}">${ep.method}</span>
+    <span class="api-method ${ep.method.toLowerCase()}">${ep.method}</span>
     <span class="ecom-url-path">${ECOM_BASE_URL}${ep.urlTemplate}</span>
+    ${ep.authLevel === "admin" ? '<span class="ecom-auth-badge ecom-auth-badge--admin"><i class="fa-solid fa-shield-halved"></i> Admin</span>' : ''}
+    ${ep.authLevel === "user" ? '<span class="ecom-auth-badge ecom-auth-badge--user"><i class="fa-solid fa-lock"></i> Auth</span>' : ''}
   `;
 
-  ecomInputsEl.innerHTML = ep.inputs().join("");
+  const currentLang = document.documentElement.getAttribute("lang") || "en";
+  const descEl = document.getElementById("ecom-ep-desc");
+  const dict = translations[currentLang] || translations["en"];
+
+  if (descEl) {
+    descEl.textContent = dict[`ecom_${key}`] || "";
+    descEl.style.display = "block";
+    setDescColor(descEl, ep.method);
+  }
+
+  ecomInputsEl.innerHTML = ep.inputs().join("") + `
+    <div class="ecom-field ecom-send-field">
+      <label class="api-label">&nbsp;</label>
+      <button class="api-send-btn" id="ecom-send-btn">Send <i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  `;
+  ecomSendBtn = document.getElementById("ecom-send-btn");
+  ecomSendBtn.addEventListener("click", handleEcomSend);
   ecomResponseEl.textContent = "";
   ecomResponseEl.className = "api-response api-response--idle";
-
-  if (key === "refresh" || key === "logout") {
-    const tokenInput = document.getElementById("ecom-Token");
-    if (tokenInput && ecomRefreshToken) tokenInput.value = ecomRefreshToken;
-  }
+  ecomUrlBar.style.display = "flex";
+  ecomInputsEl.style.display = "grid";
 }
 
-ecomSendBtn.addEventListener("click", async () => {
+const handleEcomSend = async () => {
   if (!ecomActiveKey) return;
   const ep = ecomEndpoints[ecomActiveKey];
   if (!ep) return;
 
-  const path = ep.path();
-  const body = ep.body();
-
   ecomSendBtn.disabled = true;
-  ecomResponseEl.innerHTML = '<span class="api-spinner"></span> loading...';
-  ecomResponseEl.className = "api-response";
+  const currentLang2 = document.documentElement.getAttribute("lang") || "en";
+  const dict2 = translations[currentLang2] || translations["en"];
+  ecomResponseEl.innerHTML = `<span class="api-spinner"></span> ${dict2.ecomLoading}`;
 
   const headers = { "Content-Type": "application/json" };
   if (ep.auth && ecomAccessToken) headers["Authorization"] = `Bearer ${ecomAccessToken}`;
 
   try {
-    const res = await fetch(`${ECOM_BASE_URL}${path}`, {
+    const res = await fetch(`${ECOM_BASE_URL}${ep.path()}`, {
       method: ep.method,
       headers,
-      body: body ? JSON.stringify(body) : undefined,
+      body: ep.body() ? JSON.stringify(ep.body()) : undefined,
     });
 
     const text = await res.text();
     let data;
-    if (!text) {
-      data = `// ${res.status} ${res.statusText}`;
-    } else {
-      try { data = JSON.parse(text); } catch { data = text; }
-    }
+    try { data = JSON.parse(text); } catch { data = text; }
 
     if ((ecomActiveKey === "login" || ecomActiveKey === "register") && res.ok && data.accessToken) {
       ecomAccessToken = data.accessToken;
       ecomRefreshToken = data.refreshToken;
-      ecomSetTokenBar();
-    }
-    if (ecomActiveKey === "refresh" && res.ok && data.accessToken) {
-      ecomAccessToken = data.accessToken;
-      ecomRefreshToken = data.refreshToken;
-      ecomSetTokenBar();
-    }
-    if (ecomActiveKey === "logout" && res.ok) {
-      ecomAccessToken = null;
-      ecomRefreshToken = null;
-      ecomSetTokenBar();
+      ecomTokenBar.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${dict2.ecomLoggedIn}`;
+      ecomTokenBar.className = "ecom-token-bar logged-in";
     }
 
-    ecomResponseEl.textContent = typeof data === "string" ? data : JSON.stringify(data, null, 2);
+    const isEmpty = data === null || data === undefined || data === "" ||
+      (typeof data === "object" && Object.keys(data).length === 0);
+
+    if (isEmpty) {
+      ecomResponseEl.textContent = res.ok
+        ? `// ${res.status} No Content — request was successful`
+        : `// ${res.status} ${res.statusText}`;
+    } else {
+      ecomResponseEl.textContent = typeof data === "string" ? data : JSON.stringify(data, null, 2);
+    }
     ecomResponseEl.className = res.ok ? "api-response success" : "api-response error";
   } catch {
-    ecomResponseEl.textContent = "// could not reach the API";
+    ecomResponseEl.textContent = dict2.ecomError_connect;
     ecomResponseEl.className = "api-response error";
   } finally {
-    ecomSendBtn.disabled = false;
+    if (ecomSendBtn) ecomSendBtn.disabled = false;
   }
+};
+
+/* ==========================================================================
+   10. KOPYALAMA FUNKSİONALLIĞI (Copy to Clipboard)
+   ========================================================================== */
+
+document.addEventListener("click", async (e) => {
+  const copyBtn = e.target.closest(".copy-btn");
+  if (!copyBtn) return;
+
+  const preEl = document.getElementById(copyBtn.dataset.clipboard);
+  if (!preEl) return;
+
+  try {
+    await navigator.clipboard.writeText(preEl.textContent);
+    const lang = document.documentElement.getAttribute("lang") || "en";
+    const dict = translations[lang] || translations["en"];
+    const originalHTML = copyBtn.innerHTML;
+    copyBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${dict.copyDone}`;
+    setTimeout(() => { copyBtn.innerHTML = originalHTML; }, 2000);
+  } catch (err) {
+    console.error("Kopyalama uğursuz oldu: ", err);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (ecomUrlBar) ecomUrlBar.style.display = "none";
+  if (ecomInputsEl) ecomInputsEl.style.display = "none";
+  setLanguage("en");
 });
